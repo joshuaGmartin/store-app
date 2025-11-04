@@ -5,3 +5,8 @@
     width: 100px;
   }
 }
+
+.arrow-container {
+  cursor: pointer;
+  user-select: none;
+}

@@ -1,3 +1,4 @@
+import { ChevronUp, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { addToCart } from "../../modules/handleCart";
 import styles from "./ShopCard.module.css";
@@ -25,6 +26,15 @@ function ShopCard({ itemData, userCart, setUserCart }) {
     addToCart(itemData, quantity, userCart, setUserCart);
   }
 
+  function handleArrowUp() {
+    setQuantity((prev) => prev + 1);
+  }
+
+  function handleArrowDown() {
+    if (quantity === 1) return;
+    setQuantity((prev) => prev - 1);
+  }
+
   return (
     <div className={styles.card}>
       <img src={itemData.image} />
@@ -40,6 +50,12 @@ function ShopCard({ itemData, userCart, setUserCart }) {
             onChange={(e) => handleOnChange(e)}
           />
         </label>
+        <span className={styles["arrow-container"]}>
+          <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
+        </span>
+        <span className={styles["arrow-container"]}>
+          <ChevronUp onClick={handleArrowUp} />
+        </span>
         <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
