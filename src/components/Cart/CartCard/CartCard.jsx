@@ -1,10 +1,10 @@
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { addToCart } from "../../modules/handleCart";
-import styles from "./ShopCard.module.css";
+import { addToCart } from "../../../modules/handleCart";
+import styles from "./CartCard.module.css";
 
-function ShopCard({ itemData, userCart, setUserCart }) {
-  const [quantity, setQuantity] = useState(1);
+function CartCard({ itemData, userCart, setUserCart }) {
+  const [quantity, setQuantity] = useState(itemData.count);
 
   function handleOnChange(e) {
     const val = e.target.value;
@@ -62,4 +62,4 @@ function ShopCard({ itemData, userCart, setUserCart }) {
   );
 }
 
-export default ShopCard;
+export default CartCard;

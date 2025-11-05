@@ -10,12 +10,12 @@ export default function App() {
 
   useEffect(() => {
     console.log("userCart");
-    console.log(userCart);
+    console.table(userCart);
   }, [userCart]);
 
   return (
     <>
-      <Header />
+      <Header userCart={userCart} />
       <Outlet context={{ userCart, setUserCart }} />
     </>
   );

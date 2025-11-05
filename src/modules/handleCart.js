@@ -4,10 +4,20 @@ export function addToCart(itemData, quantity, userCart, setUserCart) {
   if (hasExistingItem(itemData, newCart)) {
     newCart = addExistingItem(itemData, newCart, quantity);
   } else {
-    newCart.push({ id: itemData.id, count: quantity });
+    newCart.push({ ...itemData, count: quantity });
   }
 
   setUserCart(newCart);
+}
+
+export function getNumItems(userCart) {
+  let count = 0;
+
+  userCart.forEach((cartItem) => {
+    count = count + cartItem.count;
+  });
+
+  return count;
 }
 
 function addExistingItem(itemData, newCart, quantity) {

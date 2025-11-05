@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
-import ShopCard from "../ShopCard/ShopCard.jsx";
+import ShopCard from "./ShopCard/ShopCard.jsx";
 
 function Shop() {
   const [itemsData, setItemsData] = useState(null);
