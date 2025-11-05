@@ -1,3 +1,5 @@
+import { use } from "react";
+
 export function addToCart(itemData, quantity, userCart, setUserCart) {
   let newCart = [...userCart];
 
@@ -6,6 +8,18 @@ export function addToCart(itemData, quantity, userCart, setUserCart) {
   } else {
     newCart.push({ ...itemData, count: quantity });
   }
+
+  setUserCart(newCart);
+}
+
+export function removeFromCart(itemID, userCart, setUserCart) {
+  console.log("remove");
+  console.table("userCart");
+  console.table(userCart);
+
+  const newCart = userCart.filter((cartItem) => cartItem.id !== itemID);
+  console.table("newCart");
+  console.table(newCart);
 
   setUserCart(newCart);
 }
