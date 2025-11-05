@@ -1,5 +1,3 @@
-import { use } from "react";
-
 export function addToCart(itemData, quantity, userCart, setUserCart) {
   let newCart = [...userCart];
 
@@ -22,6 +20,16 @@ export function removeFromCart(itemID, userCart, setUserCart) {
   console.table(newCart);
 
   setUserCart(newCart);
+}
+
+export function getCartTotal(userCart) {
+  let total = 0;
+
+  userCart.forEach((cartItem) => {
+    total = total + cartItem.price * cartItem.count;
+  });
+
+  return total;
 }
 
 export function getNumItems(userCart) {

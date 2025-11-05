@@ -35,6 +35,7 @@ function CartCard({ itemData, userCart, setUserCart }) {
     <div className={styles.card}>
       <img src={itemData.image} />
       <h3>{itemData.title}</h3>
+      <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
       <div>
         {/* Deciding against manual input */}
         {/* <label htmlFor={itemData.id}>

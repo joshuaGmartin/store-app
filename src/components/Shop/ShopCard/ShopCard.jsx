@@ -41,6 +41,7 @@ function ShopCard({ itemData, userCart, setUserCart }) {
       <img src={itemData.image} />
       <h3>{itemData.title}</h3>
       <p>{itemData.description}</p>
+      <p>${itemData.price.toFixed(2)}</p>
       <div>
         {/* Deciding against manual input */}
         {/* <label htmlFor={itemData.id}>

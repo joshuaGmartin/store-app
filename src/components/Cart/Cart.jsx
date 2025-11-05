@@ -1,5 +1,6 @@
 import { useOutletContext } from "react-router";
 import CartCard from "./CartCard/CartCard";
+import { getCartTotal } from "../../modules/handleCart";
 
 function Cart() {
   const { userCart, setUserCart } = useOutletContext();
@@ -16,6 +17,7 @@ function Cart() {
           />
         );
       })}
+      <div>Total: ${getCartTotal(userCart).toFixed(2)}</div>
     </>
   );
 }
