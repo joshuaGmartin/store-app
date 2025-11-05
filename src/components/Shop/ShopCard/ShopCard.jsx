@@ -6,16 +6,17 @@ import styles from "./ShopCard.module.css";
 function ShopCard({ itemData, userCart, setUserCart }) {
   const [quantity, setQuantity] = useState(1);
 
-  function handleOnChange(e) {
-    const val = e.target.value;
+  // Deciding against manual input
+  // function handleOnChange(e) {
+  //   const val = e.target.value;
 
-    if (val === "") {
-      setQuantity(val);
-      return;
-    } else if (isNaN(val)) return;
-    else if (val < 1) return;
-    else setQuantity(val);
-  }
+  //   if (val === "") {
+  //     setQuantity(val);
+  //     return;
+  //   } else if (isNaN(val)) return;
+  //   else if (val < 1) return;
+  //   else setQuantity(val);
+  // }
 
   function handleAddToCart() {
     if (quantity === "") {
@@ -41,7 +42,8 @@ function ShopCard({ itemData, userCart, setUserCart }) {
       <h3>{itemData.title}</h3>
       <p>{itemData.description}</p>
       <div>
-        <label htmlFor={itemData.id}>
+        {/* Deciding against manual input */}
+        {/* <label htmlFor={itemData.id}>
           Quantity:{" "}
           <input
             id={itemData.id}
@@ -49,10 +51,11 @@ function ShopCard({ itemData, userCart, setUserCart }) {
             value={quantity}
             onChange={(e) => handleOnChange(e)}
           />
-        </label>
+        </label> */}
         <span className={styles["arrow-container"]}>
           <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
         </span>
+        <span className={styles.quantity}>{quantity}</span>
         <span className={styles["arrow-container"]}>
           <ChevronUp onClick={handleArrowUp} />
         </span>
