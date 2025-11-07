@@ -1,10 +1,18 @@
-import { useOutletContext } from "react-router";
+import { useEffect } from "react";
+import { useOutletContext, useNavigate } from "react-router";
 import CheckoutCard from "./CheckoutCard/CheckoutCard";
 import CheckoutTotalSection from "./CheckoutTotalSection/CheckoutTotalSection";
 import styles from "./Checkout.module.css";
 
 function Checkout() {
   const { userCart, setUserCart } = useOutletContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userCart.length === 0) {
+      navigate("/");
+    }
+  }, [userCart, navigate]);
 
   return (
     <>

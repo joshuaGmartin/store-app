@@ -1,10 +1,15 @@
 import styles from "./CheckoutBtn.module.css";
 import { Link } from "react-router";
 
-function CheckoutBtn() {
+function CheckoutBtn({ userCart }) {
   return (
-    <button>
-      <Link to="/checkout">Checkout</Link>
+    <button disabled={userCart.length === 0}>
+      <Link
+        to="/checkout"
+        className={userCart.length === 0 ? styles["disabled-Link"] : null}
+      >
+        Checkout
+      </Link>
     </button>
   );
 }

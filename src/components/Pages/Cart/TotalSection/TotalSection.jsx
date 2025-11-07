@@ -17,7 +17,7 @@ function TotalSection({ userCart }) {
         Estimated Tax ({taxRate * 100}%): ${(subtotal * 0.05).toFixed(2)}
       </div>
       <div>Total: ${(subtotal + shipping + tax).toFixed(2)}</div>
-      <CheckoutBtn />
+      <CheckoutBtn userCart={userCart} />
       <ContinueShoppingBtn />
     </>
   );
