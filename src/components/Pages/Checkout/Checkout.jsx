@@ -4,7 +4,7 @@ import CheckoutTotalSection from "./CheckoutTotalSection/CheckoutTotalSection";
 import styles from "./Checkout.module.css";
 
 function Checkout() {
-  const { userCart } = useOutletContext();
+  const { userCart, setUserCart } = useOutletContext();
 
   return (
     <>
@@ -18,7 +18,7 @@ function Checkout() {
           })}
         </div>
       )}
-      <CheckoutTotalSection userCart={userCart} />
+      <CheckoutTotalSection userCart={userCart} setUserCart={setUserCart} />
     </>
   );
 }
