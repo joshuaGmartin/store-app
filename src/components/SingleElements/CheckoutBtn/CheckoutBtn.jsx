@@ -4,7 +4,7 @@ import { Link } from "react-router";
 function CheckoutBtn() {
   return (
     <button>
-      <Link to="/link">Checkout</Link>
+      <Link to="/checkout">Checkout</Link>
     </button>
   );
 }

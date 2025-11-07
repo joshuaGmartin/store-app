@@ -10,7 +10,7 @@ function Cart() {
   return (
     <>
       {userCart.length === 0 ? (
-        <div>You're cart is empty</div>
+        <div>Your cart is empty</div>
       ) : (
         <div>
           {userCart.map((itemData) => {

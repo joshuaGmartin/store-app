@@ -1,0 +1,12 @@
+.card {
+  outline: black solid 1px;
+
+  img {
+    width: 100px;
+  }
+}
+
+.arrow-container {
+  cursor: pointer;
+  user-select: none;
+}

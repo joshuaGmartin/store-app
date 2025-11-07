@@ -1,10 +1,10 @@
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import { addToCart } from "../../../modules/handleCart";
-import styles from "./ShopCard.module.css";
+import { addToCart, removeFromCart } from "../../../../modules/handleCart";
+import styles from "./CartCard.module.css";
 
-function ShopCard({ itemData, userCart, setUserCart }) {
-  const [quantity, setQuantity] = useState(1);
+function CartCard({ itemData, userCart, setUserCart }) {
+  // const [quantity, setQuantity] = useState(itemData.count);
 
   // Deciding against manual input
   // function handleOnChange(e) {
@@ -18,30 +18,24 @@ function ShopCard({ itemData, userCart, setUserCart }) {
   //   else setQuantity(val);
   // }
 
-  function handleAddToCart() {
-    if (quantity === "") {
-      console.error("must enter quantity");
-      return;
-    }
-
-    addToCart(itemData, quantity, userCart, setUserCart);
+  function handleRemoveFromCart() {
+    removeFromCart(itemData.id, userCart, setUserCart);
   }
 
   function handleArrowUp() {
-    setQuantity((prev) => prev + 1);
+    addToCart(itemData, 1, userCart, setUserCart);
   }
 
   function handleArrowDown() {
-    if (quantity === 1) return;
-    setQuantity((prev) => prev - 1);
+    if (itemData.count === 1) return;
+    addToCart(itemData, -1, userCart, setUserCart);
   }
 
   return (
     <div className={styles.card}>
       <img src={itemData.image} />
       <h3>{itemData.title}</h3>
-      <p>{itemData.description}</p>
-      <p>${itemData.price.toFixed(2)}</p>
+      <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
       <div>
         {/* Deciding against manual input */}
         {/* <label htmlFor={itemData.id}>
@@ -56,14 +50,15 @@ function ShopCard({ itemData, userCart, setUserCart }) {
         <span className={styles["arrow-container"]}>
           <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
         </span>
-        <span className={styles.quantity}>{quantity}</span>
+        {/* <span className={styles.quantity}>{quantity}</span> */}
+        <span className={styles.quantity}>{itemData.count}</span>
         <span className={styles["arrow-container"]}>
           <ChevronUp onClick={handleArrowUp} />
         </span>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button onClick={handleRemoveFromCart}>Remove</button>
       </div>
     </div>
   );
 }
 
-export default ShopCard;
+export default CartCard;
