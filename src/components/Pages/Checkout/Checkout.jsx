@@ -6,13 +6,18 @@ import styles from "./Checkout.module.css";
 
 function Checkout() {
   const { userCart, setUserCart } = useOutletContext();
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
+  // redirect on empty cart (user manually inputs checkout url)
   useEffect(() => {
-    if (userCart.length === 0) {
-      navigate("/");
-    }
-  }, [userCart, navigate]);
+    if (userCart.length === 0) navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // no flash checkout if cart is empty
+  if (userCart.length === 0) {
+    return null;
+  }
 
   return (
     <>
