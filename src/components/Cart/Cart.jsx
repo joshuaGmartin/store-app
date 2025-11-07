@@ -1,23 +1,33 @@
 import { useOutletContext } from "react-router";
 import CartCard from "./CartCard/CartCard";
-import { getCartTotal } from "../../modules/handleCart";
+import TotalSection from "./TotalSection/TotalSection";
+
+import styles from "./Cart.module.css";
 
 function Cart() {
   const { userCart, setUserCart } = useOutletContext();
 
   return (
     <>
-      {userCart.map((itemData) => {
-        return (
-          <CartCard
-            key={itemData.id}
-            itemData={itemData}
-            userCart={userCart}
-            setUserCart={setUserCart}
-          />
-        );
-      })}
-      <div>Total: ${getCartTotal(userCart).toFixed(2)}</div>
+      {userCart.length === 0 ? (
+        <div>You're cart is empty</div>
+      ) : (
+        <div>
+          {userCart.map((itemData) => {
+            return (
+              <CartCard
+                key={itemData.id}
+                itemData={itemData}
+                userCart={userCart}
+                setUserCart={setUserCart}
+              />
+            );
+          })}
+        </div>
+      )}
+      <div className={styles["total-section"]}>
+        <TotalSection userCart={userCart} />
+      </div>
     </>
   );
 }
