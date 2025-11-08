@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import styles from "./CheckoutBtn.module.css";
 import { Link } from "react-router";
+import { CartContext } from "../../../App";
 
-function CheckoutBtn({ userCart }) {
+function CheckoutBtn() {
+  const { userCart } = useContext(CartContext);
+
   return (
     <button disabled={userCart.length === 0}>
       <Link

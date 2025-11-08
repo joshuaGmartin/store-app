@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, createContext, useEffect } from "react";
 import { Outlet } from "react-router";
 import Header from "./components/Header/Header.jsx";
 import "./App.css";
-//test
-import { useEffect } from "react";
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const CartContext = createContext();
 
 export default function App() {
   const [userCart, setUserCart] = useState([]);
@@ -15,8 +16,10 @@ export default function App() {
 
   return (
     <>
-      <Header userCart={userCart} />
-      <Outlet context={{ userCart, setUserCart }} />
+      <CartContext.Provider value={{ userCart, setUserCart }}>
+        <Header />
+        <Outlet />
+      </CartContext.Provider>
     </>
   );
 }

@@ -1,10 +1,15 @@
 import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../../../App.jsx";
-import ShopCard from "./ShopCard/ShopCard.jsx";
+import { useParams } from "react-router";
+import { CartContext } from "../../../App";
+import styles from "./Product.module.css";
 
-function Shop() {
+function Product() {
+  // if id no in itemsData, navigate to error
+
   const [itemsData, setItemsData] = useState(null);
   const { userCart, setUserCart } = useContext(CartContext);
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -14,15 +19,7 @@ function Shop() {
       });
   }, []);
 
-  return (
-    <>
-      {itemsData
-        ? itemsData.map((itemData) => {
-            return <ShopCard key={itemData.id} itemData={itemData} />;
-          })
-        : "loading..."}
-    </>
-  );
+  return <>{id}</>;
 }
 
-export default Shop;
+export default Product;

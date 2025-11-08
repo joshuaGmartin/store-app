@@ -1,9 +1,13 @@
 import { ChevronUp, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Link } from "react-router";
+import { useContext, useState } from "react";
 import { addToCart } from "../../../../modules/handleCart";
 import styles from "./ShopCard.module.css";
+import { CartContext } from "../../../../App";
 
-function ShopCard({ itemData, userCart, setUserCart }) {
+function ShopCard({ itemData }) {
+  const { userCart, setUserCart } = useContext(CartContext);
+
   const [quantity, setQuantity] = useState(1);
 
   // Deciding against manual input
@@ -40,6 +44,9 @@ function ShopCard({ itemData, userCart, setUserCart }) {
     <div className={styles.card}>
       <img src={itemData.image} />
       <h3>{itemData.title}</h3>
+      <button>
+        <Link to={"/product/" + itemData.id}>View Product</Link>
+      </button>
       <p>{itemData.description}</p>
       <p>${itemData.price.toFixed(2)}</p>
       <div>

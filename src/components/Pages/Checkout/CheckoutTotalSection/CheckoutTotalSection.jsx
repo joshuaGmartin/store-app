@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { getCartTotal } from "../../../../modules/handleCart";
 import { Link } from "react-router";
 import OnPlaceOrderPopUp from "../../../Popups/OnPlaceOrderPopUp/OnPlaceOrderPopUp";
 import styles from "./CheckoutTotalSection.module.css";
+import { CartContext } from "../../../../App";
 
-function CheckoutTotalSection({ userCart, setUserCart }) {
+function CheckoutTotalSection() {
+  const { userCart, setUserCart } = useContext(CartContext);
+
   const [showPopup_onPlaceOrder, setShowPopup_onPlaceOrder] = useState(false);
   const subtotal = getCartTotal(userCart);
 

@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../../../../App";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import { useState } from "react";
+// Deciding against manual input
+// import { useState } from "react";
 import { addToCart, removeFromCart } from "../../../../modules/handleCart";
 import styles from "./CartCard.module.css";
 
-function CartCard({ itemData, userCart, setUserCart }) {
+function CartCard({ itemData }) {
   // const [quantity, setQuantity] = useState(itemData.count);
 
   // Deciding against manual input
@@ -17,6 +20,8 @@ function CartCard({ itemData, userCart, setUserCart }) {
   //   else if (val < 1) return;
   //   else setQuantity(val);
   // }
+
+  const { userCart, setUserCart } = useContext(CartContext);
 
   function handleRemoveFromCart() {
     removeFromCart(itemData.id, userCart, setUserCart);

@@ -1,11 +1,12 @@
-import { useOutletContext } from "react-router";
+import { useContext } from "react";
+import { CartContext } from "../../../App";
 import CartCard from "./CartCard/CartCard";
 import TotalSection from "./TotalSection/TotalSection";
 
 import styles from "./Cart.module.css";
 
 function Cart() {
-  const { userCart, setUserCart } = useOutletContext();
+  const { userCart } = useContext(CartContext);
 
   return (
     <>
@@ -14,19 +15,12 @@ function Cart() {
       ) : (
         <div>
           {userCart.map((itemData) => {
-            return (
-              <CartCard
-                key={itemData.id}
-                itemData={itemData}
-                userCart={userCart}
-                setUserCart={setUserCart}
-              />
-            );
+            return <CartCard key={itemData.id} itemData={itemData} />;
           })}
         </div>
       )}
       <div className={styles["total-section"]}>
-        <TotalSection userCart={userCart} />
+        <TotalSection />
       </div>
     </>
   );

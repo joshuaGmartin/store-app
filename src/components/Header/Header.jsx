@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { CartContext } from "../../App";
 import { getNumItems } from "../../modules/handleCart";
 import { Link } from "react-router";
 import styles from "./Header.module.css";
 
-function Header({ userCart }) {
+function Header() {
+  const { userCart } = useContext(CartContext);
+
   return (
     <>
       <h1>the.warehouse.store</h1>

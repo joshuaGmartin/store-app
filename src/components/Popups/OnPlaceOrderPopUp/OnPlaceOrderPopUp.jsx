@@ -1,7 +1,11 @@
+import { useContext } from "react";
+import { CartContext } from "../../../App.jsx";
 import { Link } from "react-router";
 import styles from "./OnPlaceOrderPopUp.module.css";
 
-function OnPlaceOrderPopUp({ setUserCart }) {
+function OnPlaceOrderPopUp() {
+  const { setUserCart } = useContext(CartContext);
+
   function handleClosePopup() {
     setUserCart([]);
   }

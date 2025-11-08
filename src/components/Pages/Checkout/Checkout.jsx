@@ -1,11 +1,12 @@
-import { useEffect } from "react";
-import { useOutletContext, useNavigate } from "react-router";
+import { useEffect, useContext } from "react";
+import { CartContext } from "../../../App";
+import { useNavigate } from "react-router";
 import CheckoutCard from "./CheckoutCard/CheckoutCard";
 import CheckoutTotalSection from "./CheckoutTotalSection/CheckoutTotalSection";
 import styles from "./Checkout.module.css";
 
 function Checkout() {
-  const { userCart, setUserCart } = useOutletContext();
+  const { userCart, setUserCart } = useContext(CartContext);
   let navigate = useNavigate();
 
   // redirect on empty cart (user manually inputs checkout url)
@@ -31,7 +32,7 @@ function Checkout() {
           })}
         </div>
       )}
-      <CheckoutTotalSection userCart={userCart} setUserCart={setUserCart} />
+      <CheckoutTotalSection />
     </>
   );
 }
