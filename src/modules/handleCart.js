@@ -1,3 +1,5 @@
+import { LucideFileChartColumnIncreasing } from "lucide-react";
+
 export function addToCart(itemData, quantity, userCart, setUserCart) {
   let newCart = [...userCart];
 

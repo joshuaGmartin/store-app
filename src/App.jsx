@@ -11,6 +11,7 @@ export default function App() {
 
   useEffect(() => {
     console.log("userCart");
+    console.log(userCart);
     console.table(userCart);
   }, [userCart]);
 
