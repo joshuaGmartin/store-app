@@ -1,10 +1,8 @@
-import { useState, useEffect, useContext } from "react";
-import { CartContext } from "../../../App.jsx";
+import { useState, useEffect } from "react";
 import ShopCard from "./ShopCard/ShopCard.jsx";
 
 function Shop() {
   const [itemsData, setItemsData] = useState(null);
-  const { userCart, setUserCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")

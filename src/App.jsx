@@ -18,8 +18,10 @@ export default function App() {
   return (
     <>
       <CartContext.Provider value={{ userCart, setUserCart }}>
-        <Header />
-        <Outlet />
+        <main>
+          <Header />
+          <Outlet />
+        </main>
       </CartContext.Provider>
     </>
   );
