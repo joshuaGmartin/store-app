@@ -23,10 +23,11 @@ function ShopCard({ itemData }) {
   // }
 
   function handleAddToCart() {
-    if (quantity === "") {
-      console.error("must enter quantity");
-      return;
-    }
+    // Deciding against manual input
+    // if (quantity === "") {
+    //   console.error("must enter quantity");
+    //   return;
+    // }
 
     addToCart(itemData, quantity, userCart, setUserCart);
   }
