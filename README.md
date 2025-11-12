@@ -10,6 +10,5 @@ add/remove notifications
 
 
 note:
-filter shop items by cat selection
-
+hook sort to render in shop
  -->

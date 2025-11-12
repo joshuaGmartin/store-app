@@ -27,11 +27,11 @@ export default function CategoryCheckBox({
       <label htmlFor={cat + "-cat"}>
         {cat.charAt(0).toUpperCase() + cat.slice(1)}
         <input
-          name={cat + "-cat"}
           type="checkbox"
           id={cat + "-cat"}
           value={cat}
           onChange={(e) => handleOnChange(e)}
+          checked={selectedCats.includes(cat)}
         />
       </label>
     </div>
