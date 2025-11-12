@@ -48,7 +48,6 @@ function ShopCard({ itemData }) {
       <button>
         <Link to={"/product/" + itemData.id}>View Product</Link>
       </button>
-      <p>{itemData.description}</p>
       <p>${itemData.price.toFixed(2)}</p>
       <div>
         {/* Deciding against manual input */}
