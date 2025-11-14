@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { addToCart } from "../../../../modules/handleCart";
 import styles from "./ShopCard.module.css";
 import { CartContext } from "../../../../App";
+import RatingStars from "../../../SingleElements/RatingStars/RatingStars";
 
 function ShopCard({ itemData }) {
   const { userCart, setUserCart } = useContext(CartContext);
@@ -49,6 +50,7 @@ function ShopCard({ itemData }) {
         <Link to={"/product/" + itemData.id}>View Product</Link>
       </button>
       <p>${itemData.price.toFixed(2)}</p>
+      <RatingStars rate={itemData.rating.rate} />
       <div>
         {/* Deciding against manual input */}
         {/* <label htmlFor={itemData.id}>

@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ShopContext } from "../../../App.jsx";
+import { useLocation, useSearchParams } from "react-router";
 import ShopCard from "./ShopCard/ShopCard.jsx";
 import CategoryCheckBox from "./CategoryCheckBox/CategoryCheckBox.jsx";
 import SortTypeInputs from "./SortTypeInputs/SortTypeInputs.jsx";
@@ -6,13 +8,51 @@ import { sortItems } from "../../../modules/util.js";
 import styles from "./Shop.module.css";
 
 function Shop() {
+  // ===================== handle shopURL context =====================
+  const { setShopURL } = useContext(ShopContext);
+  const location = useLocation();
+
+  useEffect(() => {
+    setShopURL(location.pathname + location.search);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
+
+  // ===================== handle search params =====================
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCats = searchParams.get("categories")?.split(",") || [];
+  const selectedSort = searchParams.get("sort") || "ratingDes";
+
+  function updateFilters(newCats, newSort) {
+    const params = {};
+
+    if (newCats.length > 0) params.categories = newCats.join(",");
+    if (newSort) params.sort = newSort;
+
+    setSearchParams(params);
+  }
+
+  function setSelectedCats(cat) {
+    let newCats;
+
+    if (selectedCats.includes(cat)) {
+      newCats = selectedCats.filter((c) => c !== cat);
+    } else {
+      newCats = [...selectedCats, cat];
+    }
+
+    updateFilters(newCats, selectedSort);
+  }
+
+  function setSelectedSort(sort) {
+    updateFilters(selectedCats, sort);
+  }
+
+  // ===================== handle shop data =====================
   const [itemsData, setItemsData] = useState(null);
   const [catData, setCatData] = useState(null);
-  const [selectedCats, setSelectedCats] = useState([]);
-  const [selectedSort, setSelectedSort] = useState("ratingDes");
-
   const sortTypes = ["price", "rating", "name"];
 
+  // on mount, get items data via API call
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -21,30 +61,27 @@ function Shop() {
       });
   }, []);
 
+  // if got items data, calc category data
   useEffect(() => {
     if (itemsData) setCatData(getCats(itemsData));
   }, [itemsData]);
 
-  let filteredItemsData;
+  // once got category data, calc filtered data
+  let filteredItemsData = null;
+  if (catData) filteredItemsData = filterItemsByCats(itemsData, selectedCats);
 
-  if (catData) {
-    filteredItemsData = filterItemsByCats(itemsData, selectedCats);
-  } else filteredItemsData = null;
-
-  //test
-  // console.log(selectedSort);
-
+  // once got filtered data, sort data and render
+  let filteredItemsData_sorted = null;
   if (filteredItemsData)
-    console.log(sortItems(filteredItemsData, selectedSort));
+    filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
   return (
     <>
-      {filteredItemsData ? (
+      {filteredItemsData_sorted ? (
         <>
           <button
             onClick={() => {
-              setSelectedCats([]);
-              setSelectedSort("ratingDes");
+              updateFilters([], "ratingDes");
             }}
           >
             Reset
@@ -76,7 +113,7 @@ function Shop() {
             })}
           </div>
           <div>
-            {filteredItemsData.map((itemData) => {
+            {filteredItemsData_sorted.map((itemData) => {
               return <ShopCard key={itemData.id} itemData={itemData} />;
             })}
           </div>

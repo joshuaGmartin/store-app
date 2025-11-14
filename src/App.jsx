@@ -5,9 +5,11 @@ import "./App.css";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext();
+export const ShopContext = createContext();
 
 export default function App() {
   const [userCart, setUserCart] = useState([]);
+  const [shopURL, setShopURL] = useState("/shop");
 
   useEffect(() => {
     console.log("userCart");
@@ -18,10 +20,12 @@ export default function App() {
   return (
     <>
       <CartContext.Provider value={{ userCart, setUserCart }}>
-        <main>
-          <Header />
-          <Outlet />
-        </main>
+        <ShopContext.Provider value={{ shopURL, setShopURL }}>
+          <main>
+            <Header />
+            <Outlet />
+          </main>
+        </ShopContext.Provider>
       </CartContext.Provider>
     </>
   );

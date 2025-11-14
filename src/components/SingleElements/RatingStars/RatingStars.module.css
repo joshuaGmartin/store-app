@@ -1,0 +1,12 @@
+.starsContainer {
+  display: flex;
+
+  background-color: white;
+}
+
+.star {
+  /* color: transparent; */
+
+  -webkit-background-clip: star;
+  background-clip: star;
+}
