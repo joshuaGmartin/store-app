@@ -1,12 +1,12 @@
 .header {
-  outline: solid red 1px;
   position: sticky;
+  z-index: 999;
 
   top: 0;
 
   width: 100%;
 
-  background-color: cadetblue;
+  background-color: lightblue;
 }
 
 .navBar {

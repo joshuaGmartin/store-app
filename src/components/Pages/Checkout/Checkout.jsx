@@ -6,7 +6,7 @@ import CheckoutTotalSection from "./CheckoutTotalSection/CheckoutTotalSection";
 import styles from "./Checkout.module.css";
 
 function Checkout() {
-  const { userCart, setUserCart } = useContext(CartContext);
+  const { userCart } = useContext(CartContext);
   let navigate = useNavigate();
 
   // redirect on empty cart (user manually inputs checkout url)

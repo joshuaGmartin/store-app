@@ -6,7 +6,7 @@ import styles from "./CheckoutTotalSection.module.css";
 import { CartContext } from "../../../../App";
 
 function CheckoutTotalSection() {
-  const { userCart, setUserCart } = useContext(CartContext);
+  const { userCart } = useContext(CartContext);
 
   const [showPopup_onPlaceOrder, setShowPopup_onPlaceOrder] = useState(false);
   const subtotal = getCartTotal(userCart);
@@ -38,9 +38,7 @@ function CheckoutTotalSection() {
           <Link to="/cart">Back to Cart</Link>
         </button>
       </div>
-      {showPopup_onPlaceOrder && (
-        <OnPlaceOrderPopUp setUserCart={setUserCart} />
-      )}
+      {showPopup_onPlaceOrder && <OnPlaceOrderPopUp />}
     </>
   );
 }

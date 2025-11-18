@@ -1,12 +1,32 @@
 .starsContainer {
+  --bg-color: cadetblue;
+
   display: flex;
 
-  background-color: white;
-}
+  background-color: var(--bg-color);
 
-.star {
-  /* color: transparent; */
+  .starContainer {
+    display: flex;
+    position: relative;
 
-  -webkit-background-clip: star;
-  background-clip: star;
+    .star {
+      position: relative;
+      fill: gold;
+      stroke-width: 0;
+    }
+
+    .starCoverSlider {
+      position: absolute;
+      right: 0;
+
+      background-color: var(--bg-color);
+      /* background-color: rgba(0, 128, 0, 0.479); */
+      height: 100%;
+    }
+
+    .starOutline {
+      position: absolute;
+      stroke-width: 1;
+    }
+  }
 }
