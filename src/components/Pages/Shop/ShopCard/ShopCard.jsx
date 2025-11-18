@@ -1,37 +1,14 @@
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { Link } from "react-router";
 import { useContext, useState } from "react";
-import { addToCart } from "../../../../modules/handleCart";
 import styles from "./ShopCard.module.css";
 import { CartContext } from "../../../../App";
 import RatingStars from "../../../SingleElements/RatingStars/RatingStars";
+import AddToCartBtn from "../../../SingleElements/AddToCartBtn/AddToCartBtn";
 
 function ShopCard({ itemData }) {
   const { userCart, setUserCart } = useContext(CartContext);
-
   const [quantity, setQuantity] = useState(1);
-
-  // Deciding against manual input
-  // function handleOnChange(e) {
-  //   const val = e.target.value;
-
-  //   if (val === "") {
-  //     setQuantity(val);
-  //     return;
-  //   } else if (isNaN(val)) return;
-  //   else if (val < 1) return;
-  //   else setQuantity(val);
-  // }
-
-  function handleAddToCart() {
-    // Deciding against manual input
-    // if (quantity === "") {
-    //   console.error("must enter quantity");
-    //   return;
-    // }
-
-    addToCart(itemData, quantity, userCart, setUserCart);
-  }
 
   function handleArrowUp() {
     setQuantity((prev) => prev + 1);
@@ -53,15 +30,6 @@ function ShopCard({ itemData }) {
       <RatingStars rate={itemData.rating.rate} />
       <div>
         {/* Deciding against manual input */}
-        {/* <label htmlFor={itemData.id}>
-          Quantity:{" "}
-          <input
-            id={itemData.id}
-            type="text"
-            value={quantity}
-            onChange={(e) => handleOnChange(e)}
-          />
-        </label> */}
         <span className={styles["arrow-container"]}>
           <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
         </span>
@@ -69,7 +37,12 @@ function ShopCard({ itemData }) {
         <span className={styles["arrow-container"]}>
           <ChevronUp onClick={handleArrowUp} />
         </span>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <AddToCartBtn
+          itemData={itemData}
+          quantity={quantity}
+          userCart={userCart}
+          setUserCart={setUserCart}
+        />
       </div>
     </div>
   );

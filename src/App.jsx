@@ -1,15 +1,18 @@
 import { useState, createContext, useEffect } from "react";
 import { Outlet } from "react-router";
 import Header from "./components/Header/Header.jsx";
+import Notifications from "./components/SingleElements/Notifications/Notifications.jsx";
 import "./App.css";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const CartContext = createContext();
 export const ShopContext = createContext();
+export const NoticeContext = createContext();
 
 export default function App() {
   const [userCart, setUserCart] = useState([]);
   const [shopURL, setShopURL] = useState("/shop");
+  const [notices, setNotices] = useState([]);
 
   useEffect(() => {
     console.log("userCart");
@@ -21,10 +24,13 @@ export default function App() {
     <>
       <CartContext.Provider value={{ userCart, setUserCart }}>
         <ShopContext.Provider value={{ shopURL, setShopURL }}>
-          <main>
-            <Header />
-            <Outlet />
-          </main>
+          <NoticeContext.Provider value={{ notices, setNotices }}>
+            <main>
+              <Header />
+              <Notifications />
+              <Outlet />
+            </main>
+          </NoticeContext.Provider>
         </ShopContext.Provider>
       </CartContext.Provider>
     </>

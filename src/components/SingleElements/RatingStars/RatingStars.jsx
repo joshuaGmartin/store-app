@@ -18,7 +18,7 @@ function getStars(rate) {
     else precSVGtoCover = 0;
 
     starsArr.push(
-      <div className={styles.starContainer}>
+      <div key={i} className={styles.starContainer}>
         <Star className={styles.star} />
         <div
           className={styles.starCoverSlider}
@@ -30,7 +30,7 @@ function getStars(rate) {
     );
 
     // decrement rate for next check
-    tracker = (tracker - 1).toFixed(2);
+    tracker = Number((tracker - 1).toFixed(2));
   }
 
   return (

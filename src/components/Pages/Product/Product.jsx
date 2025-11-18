@@ -3,9 +3,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import { CartContext } from "../../../App";
 import ContinueShoppingBtn from "../../SingleElements/ContinueShoppingBtn/ContinueShoppingBtn";
-import { addToCart } from "../../../modules/handleCart";
 import styles from "./Product.module.css";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import AddToCartBtn from "../../SingleElements/AddToCartBtn/AddToCartBtn";
 
 function Product() {
   const { itemID } = useParams();
@@ -26,10 +26,6 @@ function Product() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  function handleAddToCart() {
-    addToCart(itemData, quantity, userCart, setUserCart);
-  }
 
   function handleArrowUp() {
     setQuantity((prev) => prev + 1);
@@ -65,7 +61,13 @@ function Product() {
               <span className={styles["arrow-container"]}>
                 <ChevronUp onClick={handleArrowUp} />
               </span>
-              <button onClick={handleAddToCart}>Add to Cart</button>
+              {/* <button onClick={handleAddToCart}>Add to Cart</button> */}
+              <AddToCartBtn
+                itemData={itemData}
+                quantity={quantity}
+                userCart={userCart}
+                setUserCart={setUserCart}
+              />
             </div>
             <ContinueShoppingBtn />
           </div>

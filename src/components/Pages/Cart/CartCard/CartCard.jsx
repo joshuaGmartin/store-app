@@ -1,30 +1,17 @@
 import { useContext } from "react";
 import { CartContext } from "../../../../App";
 import { ChevronUp, ChevronDown } from "lucide-react";
-// Deciding against manual input
-// import { useState } from "react";
 import { addToCart, removeFromCart } from "../../../../modules/handleCart";
+import { useNotice } from "../../../SingleElements/Notifications/Notifications";
 import styles from "./CartCard.module.css";
 
 function CartCard({ itemData }) {
-  // const [quantity, setQuantity] = useState(itemData.count);
-
-  // Deciding against manual input
-  // function handleOnChange(e) {
-  //   const val = e.target.value;
-
-  //   if (val === "") {
-  //     setQuantity(val);
-  //     return;
-  //   } else if (isNaN(val)) return;
-  //   else if (val < 1) return;
-  //   else setQuantity(val);
-  // }
-
   const { userCart, setUserCart } = useContext(CartContext);
+  const { pushNotice } = useNotice();
 
   function handleRemoveFromCart() {
     removeFromCart(itemData.id, userCart, setUserCart);
+    pushNotice("remove");
   }
 
   function handleArrowUp() {
@@ -43,19 +30,9 @@ function CartCard({ itemData }) {
       <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
       <div>
         {/* Deciding against manual input */}
-        {/* <label htmlFor={itemData.id}>
-          Quantity:{" "}
-          <input
-            id={itemData.id}
-            type="text"
-            value={quantity}
-            onChange={(e) => handleOnChange(e)}
-          />
-        </label> */}
         <span className={styles["arrow-container"]}>
           <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
         </span>
-        {/* <span className={styles.quantity}>{quantity}</span> */}
         <span className={styles.quantity}>{itemData.count}</span>
         <span className={styles["arrow-container"]}>
           <ChevronUp onClick={handleArrowUp} />
