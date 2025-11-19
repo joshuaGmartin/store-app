@@ -6,6 +6,7 @@ import ContinueShoppingBtn from "../../SingleElements/ContinueShoppingBtn/Contin
 import styles from "./Product.module.css";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import AddToCartBtn from "../../SingleElements/AddToCartBtn/AddToCartBtn";
+import Loading from "../../SingleElements/Loading/Loading";
 
 function Product() {
   const { itemID } = useParams();
@@ -72,7 +73,7 @@ function Product() {
             <ContinueShoppingBtn />
           </div>
         ) : (
-          "loading..."
+          <Loading />
         )}
       </>
     );

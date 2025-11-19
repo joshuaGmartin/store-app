@@ -6,6 +6,7 @@ import CategoryCheckBox from "./CategoryCheckBox/CategoryCheckBox.jsx";
 import SortTypeInputs from "./SortTypeInputs/SortTypeInputs.jsx";
 import { sortItems } from "../../../modules/util.js";
 import styles from "./Shop.module.css";
+import Loading from "../../SingleElements/Loading/Loading.jsx";
 
 function Shop() {
   // ===================== handle shopURL context =====================
@@ -75,6 +76,9 @@ function Shop() {
   if (filteredItemsData)
     filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
+  //test
+  // return <Loading />;
+
   return (
     <>
       {filteredItemsData_sorted ? (
@@ -119,7 +123,7 @@ function Shop() {
           </div>
         </>
       ) : (
-        "loading..."
+        <Loading />
       )}
     </>
   );

@@ -1,0 +1,10 @@
+.loadingContainer {
+  margin-top: 10rem;
+  font-size: 5rem;
+  background-color: lightblue;
+  text-align: center;
+
+  .coloredChar {
+    color: white;
+  }
+}

@@ -9,6 +9,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+}
+
 button a {
   text-decoration: none;
 }
