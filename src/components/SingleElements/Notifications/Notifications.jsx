@@ -7,7 +7,7 @@ function Notifications() {
 
   let noticeElms = [];
 
-  notices.forEach((notice) => {
+  notices.forEach((notice, index) => {
     console.log("notice");
     console.log(notice.notice);
 
@@ -24,7 +24,11 @@ function Notifications() {
         break;
     }
 
-    noticeElms.push(<div className={styles.noticeContainer}>{message}</div>);
+    noticeElms.push(
+      <div key={index} className={styles.noticeContainer}>
+        {message}
+      </div>
+    );
   });
 
   return <div className={styles.noticesContainer}>{noticeElms}</div>;

@@ -9,7 +9,9 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <h1>the.warehouse.store</h1>
+      <Link to="/" className={styles.logo}>
+        <h1>the.warehouse.store</h1>
+      </Link>
       <nav className={styles.navBar}>
         <Link to="/">Home</Link>
         <Link to="/shop">Shop</Link>

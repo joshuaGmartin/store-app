@@ -1,7 +1,17 @@
 @import url("./reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.roboto-font {
+}
 
 :root {
-  background-color: cadetblue;
+  /* vars */
+  --bg-color-primary: cadetblue;
+  --bg-color-secondary: lightblue;
+  --color-primary: black;
+  --color-secondary: white;
+  --padding: 1rem;
+  --spacing: 1rem;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -10,8 +20,30 @@
 }
 
 body {
+  background-color: var(--bg-color-primary);
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
+
+/* 
+-----------------------------------------------------------------
+Catch All
+-----------------------------------------------------------------
+ */
 
 button a {
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
 }

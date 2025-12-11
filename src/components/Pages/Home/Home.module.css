@@ -1,0 +1,92 @@
+.introText {
+  --base-ani-delay: 0.5s;
+  --ani-dur: 1.75s;
+  --secondary-ani-delay: 1.5s;
+
+  margin-top: 5rem;
+
+  h2.intro1,
+  h2.intro2,
+  h2.intro3,
+  h2.intro4 {
+    font-size: 3.5rem;
+    width: 100%;
+    padding: 0 3rem;
+  }
+
+  h2.intro1,
+  h2.intro3 {
+    background-color: white;
+    text-align: end;
+  }
+
+  h2.intro2,
+  h2.intro4 {
+    background-color: lightblue;
+    /* text-align: end; */
+  }
+
+  h2.intro1 {
+    animation: slideIn-intro1 var(--ani-dur) ease-out forwards;
+    animation-delay: calc(var(--base-ani-delay) + 0s);
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  h2.intro2 {
+    animation: slideIn-intro2 var(--ani-dur) ease-out forwards;
+    animation-delay: calc(var(--base-ani-delay) + var(--secondary-ani-delay));
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  h2.intro3 {
+    animation: slideIn-intro3 var(--ani-dur) ease-out forwards;
+    animation-delay: calc(
+      var(--base-ani-delay) + var(--secondary-ani-delay) +
+        var(--secondary-ani-delay)
+    );
+    transform: translateX(-100%);
+    opacity: 0;
+
+    /* padding-right: 5rem; */
+  }
+
+  h2.intro4 {
+    animation: slideIn-intro4 var(--ani-dur) ease-out forwards;
+    animation-delay: calc(
+      var(--base-ani-delay) + var(--secondary-ani-delay) +
+        var(--secondary-ani-delay) + var(--secondary-ani-delay)
+    );
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn-intro1 {
+  to {
+    transform: translateX(-33%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-intro2 {
+  to {
+    transform: translateX(15%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-intro3 {
+  to {
+    transform: translateX(-10%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-intro4 {
+  to {
+    transform: translateX(10%);
+    opacity: 1;
+  }
+}

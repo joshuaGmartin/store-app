@@ -1,13 +1,52 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
+import { fetchAllProducts } from "../../../modules/shopAPI";
+import { sortItems } from "../../../modules/util";
+import Loading from "../../SingleElements/Loading/Loading";
+import styles from "./Home.module.css";
 
 function Home() {
+  const [itemsData, setItemsData] = useState(null);
+  const numItemsToShow = 3;
+
+  useEffect(() => {
+    fetchAllProducts().then((jsonData) => {
+      setItemsData(jsonData);
+    });
+  }, []);
+
+  let sortedItemsData = null;
+  if (itemsData) {
+    sortedItemsData = sortItems(itemsData, "ratingDes");
+    // pull top three highest rated items
+    sortedItemsData = sortedItemsData.slice(0, numItemsToShow);
+  }
+
   return (
     <>
-      <h1>welcome to the.warehouse.store</h1>
-      <h2>where we find you the best deals on overstocked items</h2>
-      <button>
-        <Link to="/shop">Shop now</Link>
-      </button>
+      <div className={styles.introText}>
+        <h2 className={styles.intro1}>welcome to</h2>
+        <h2 className={styles.intro2}>the.warehouse.store</h2>
+        <h2 className={styles.intro3}>where we find the best deals</h2>
+        <h2 className={styles.intro4}>on overstocked items</h2>
+      </div>
+      <div className={styles.intro5}>
+        <button>
+          <Link to="/shop">Shop now</Link>
+        </button>
+        <div className={styles.topItemsWrapper}>
+          <h3>Best Sellers</h3>
+          {!sortedItemsData ? (
+            <Loading />
+          ) : (
+            <>
+              {sortedItemsData.map((data) => {
+                return <div>{data.title}</div>;
+              })}
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 }

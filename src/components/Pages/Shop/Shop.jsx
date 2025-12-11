@@ -7,6 +7,7 @@ import SortTypeInputs from "./SortTypeInputs/SortTypeInputs.jsx";
 import { sortItems } from "../../../modules/util.js";
 import styles from "./Shop.module.css";
 import Loading from "../../SingleElements/Loading/Loading.jsx";
+import { fetchAllProducts } from "../../../modules/shopAPI.js";
 
 function Shop() {
   // ===================== handle shopURL context =====================
@@ -55,11 +56,9 @@ function Shop() {
 
   // on mount, get items data via API call
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((jsonData) => {
-        setItemsData(jsonData);
-      });
+    fetchAllProducts().then((jsonData) => {
+      setItemsData(jsonData);
+    });
   }, []);
 
   // if got items data, calc category data
@@ -76,7 +75,7 @@ function Shop() {
   if (filteredItemsData)
     filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
-  //test
+  // test
   // return <Loading />;
 
   return (

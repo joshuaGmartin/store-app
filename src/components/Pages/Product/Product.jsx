@@ -7,6 +7,7 @@ import styles from "./Product.module.css";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import AddToCartBtn from "../../SingleElements/AddToCartBtn/AddToCartBtn";
 import Loading from "../../SingleElements/Loading/Loading";
+import { fetchProduct } from "../../../modules/shopAPI";
 
 function Product() {
   const { itemID } = useParams();
@@ -15,16 +16,9 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    if (!(itemID >= 1) || !(itemID <= 20)) {
-      //do nothing
-    } else {
-      fetch(`https://fakestoreapi.com/products/${itemID}`)
-        .then((response) => response.json())
-        .then((jsonData) => {
-          setItemData(jsonData);
-        });
-    }
-
+    fetchProduct(itemID).then((jsonData) => {
+      setItemData(jsonData);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
