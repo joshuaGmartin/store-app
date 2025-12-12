@@ -4,6 +4,7 @@ import { fetchAllProducts } from "../../../modules/shopAPI";
 import { sortItems } from "../../../modules/util";
 import Loading from "../../SingleElements/Loading/Loading";
 import styles from "./Home.module.css";
+import HomeProductCard from "./HomeProductCard/HomeProductCard";
 
 function Home() {
   const [itemsData, setItemsData] = useState(null);
@@ -25,13 +26,19 @@ function Home() {
   return (
     <>
       <div className={styles.introText}>
-        <h2 className={styles.intro1}>welcome to</h2>
+        <h2 className={styles.intro1}>
+          <i>welcome to</i>
+        </h2>
         <h2 className={styles.intro2}>the.warehouse.store</h2>
-        <h2 className={styles.intro3}>where we find the best deals</h2>
+        <h2 className={styles.intro3}>
+          <i>
+            where we find the <b>best</b> deals
+          </i>
+        </h2>
         <h2 className={styles.intro4}>on overstocked items</h2>
       </div>
       <div className={styles.intro5}>
-        <button>
+        <button className={styles.shopNowButton}>
           <Link to="/shop">Shop now</Link>
         </button>
         <div className={styles.topItemsWrapper}>
@@ -40,8 +47,10 @@ function Home() {
             <Loading />
           ) : (
             <>
-              {sortedItemsData.map((data) => {
-                return <div>{data.title}</div>;
+              {sortedItemsData.map((itemData) => {
+                return (
+                  <HomeProductCard key={itemData.id} itemData={itemData} />
+                );
               })}
             </>
           )}

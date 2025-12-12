@@ -1,43 +1,68 @@
-.introText {
+:root {
   --base-ani-delay: 0.5s;
   --ani-dur: 1.75s;
   --secondary-ani-delay: 1.5s;
+  --intro-slide-width: 1000rem;
+  --tablet-size: 1100px;
 
-  margin-top: 5rem;
+  /* test */
+  /* --base-ani-delay: 0s; */
+  /* --ani-dur: 0s; */
+  /* --secondary-ani-delay: 0s; */
+
+  --spacing-top: 2.5rem;
+}
+
+.introText {
+  margin-top: var(--spacing-top);
+  overflow-x: hidden;
 
   h2.intro1,
   h2.intro2,
   h2.intro3,
   h2.intro4 {
     font-size: 3.5rem;
-    width: 100%;
-    padding: 0 3rem;
+    width: var(--intro-slide-width);
   }
 
   h2.intro1,
   h2.intro3 {
     background-color: white;
     text-align: end;
+    clip-path: polygon(0% 0%, 100% 0%, 99.5% 100%, 0% 100%);
   }
 
   h2.intro2,
   h2.intro4 {
     background-color: lightblue;
-    /* text-align: end; */
+    clip-path: polygon(0.5% 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 
   h2.intro1 {
     animation: slideIn-intro1 var(--ani-dur) ease-out forwards;
     animation-delay: calc(var(--base-ani-delay) + 0s);
-    transform: translateX(-100%);
+    transform: translateX(calc(-1 * var(--intro-slide-width)));
     opacity: 0;
+    /* vw = 1920px  */
+    /* padding-right: 650px; */
+    /* vw = 1100 */
+    /* padding-right: 150px; */
+    /* manually found padding for two screen sizes, calculated linear equation */
+    padding-right: calc(0.683 * 100vw - 661.3px);
   }
 
   h2.intro2 {
     animation: slideIn-intro2 var(--ani-dur) ease-out forwards;
     animation-delay: calc(var(--base-ani-delay) + var(--secondary-ani-delay));
-    transform: translateX(100%);
+    /* transform: translateX(var(--intro-slide-width)); */
+    transform: translateX(100vw);
     opacity: 0;
+
+    /* vw = 1100 */
+    /* padding-left: 90px; */
+    /* vw = 1920px  */
+    /* padding-left: 400px; */
+    padding-left: calc(0.378 * 100vw - 325.8px);
   }
 
   h2.intro3 {
@@ -46,10 +71,19 @@
       var(--base-ani-delay) + var(--secondary-ani-delay) +
         var(--secondary-ani-delay)
     );
-    transform: translateX(-100%);
+    transform: translateX(calc(-1 * var(--intro-slide-width)));
     opacity: 0;
 
-    /* padding-right: 5rem; */
+    padding-right: calc(
+      (100vw / var(--tablet-size)) * (100vw / var(--tablet-size)) *
+        (100vw / var(--tablet-size)) * 5rem
+    );
+
+    /* vw = 1100 */
+    /* padding-right: 90px; */
+    /* vw = 1920px  */
+    /* padding-right: 310px; */
+    padding-right: calc(0.268 * 100vw - 204.8px);
   }
 
   h2.intro4 {
@@ -58,35 +92,59 @@
       var(--base-ani-delay) + var(--secondary-ani-delay) +
         var(--secondary-ani-delay) + var(--secondary-ani-delay)
     );
-    transform: translateX(100%);
+    transform: translateX(100vw);
     opacity: 0;
+
+    padding-left: calc(
+      (100vw / var(--tablet-size)) * (100vw / var(--tablet-size)) *
+        (100vw / var(--tablet-size)) * 5rem
+    );
+
+    /* vw = 1100 */
+    /* padding-right: 90px; */
+    /* vw = 1920px  */
+    /* padding-left: 530px; */
+    padding-left: calc(0.537 * 100vw - 500.7px);
+  }
+}
+
+.intro5 {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: var(--spacing-top);
+
+  .shopNowButton {
+    align-self: center;
   }
 }
 
 @keyframes slideIn-intro1 {
   to {
-    transform: translateX(-33%);
+    transform: translateX(calc(-1 * var(--intro-slide-width) + 100vw - 10rem));
     opacity: 1;
   }
 }
 
 @keyframes slideIn-intro2 {
   to {
-    transform: translateX(15%);
+    transform: translateX(20rem);
     opacity: 1;
   }
 }
 
 @keyframes slideIn-intro3 {
   to {
-    transform: translateX(-10%);
+    transform: translateX(
+      calc(-1 * var(--intro-slide-width) + 100vw - 19.9rem)
+    );
     opacity: 1;
   }
 }
 
 @keyframes slideIn-intro4 {
   to {
-    transform: translateX(10%);
+    transform: translateX(10rem);
     opacity: 1;
   }
 }

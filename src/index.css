@@ -37,6 +37,15 @@ Catch All
 
 button a {
   text-decoration: none;
+  color: black;
+}
+
+button {
+  color: black;
+  padding: 0.5rem 3rem;
+  border: none;
+  clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+  width: 15rem;
 }
 
 h1,
