@@ -1,0 +1,56 @@
+.card {
+  background-color: lightblue;
+  background-color: white;
+  padding: var(--padding);
+
+  height: 30rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* justify-content: end; */
+
+  --cut: 5rem;
+  --bg: white;
+  /* --cut-bg: cadetblue; */
+  --cut-bg: lightblue;
+
+  background:
+    /* linear-gradient(135deg, var(--cut-bg) 0 50%, transparent 50%) top left, */
+    linear-gradient(225deg, var(--cut-bg) 0 50%, transparent 50%) top right,
+    /* linear-gradient(315deg, var(--cut-bg) 0 50%, transparent 50%) bottom right, */
+      linear-gradient(45deg, var(--cut-bg) 0 50%, transparent 50%) bottom left,
+    var(--bg);
+
+  background-size:
+    var(--cut) var(--cut),
+    var(--cut) var(--cut),
+    var(--cut) var(--cut),
+    var(--cut) var(--cut),
+    100% 100%;
+
+  background-repeat: no-repeat;
+
+  .imgAndTitle {
+    img {
+      /* max-height: 17.5rem; */
+      margin: 0 auto;
+      max-height: 15rem;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    .starsAndPrice {
+      display: flex;
+      justify-content: start;
+      gap: 2rem;
+    }
+
+    button {
+      align-self: center;
+    }
+  }
+}

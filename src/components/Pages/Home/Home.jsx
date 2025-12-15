@@ -46,13 +46,13 @@ function Home() {
           {!sortedItemsData ? (
             <Loading />
           ) : (
-            <>
+            <div className={styles.bestSellersCards}>
               {sortedItemsData.map((itemData) => {
                 return (
                   <HomeProductCard key={itemData.id} itemData={itemData} />
                 );
               })}
-            </>
+            </div>
           )}
         </div>
       </div>

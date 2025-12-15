@@ -109,6 +109,12 @@
 }
 
 .intro5 {
+  animation: slideIn-intro5 var(--ani-dur) ease-out forwards;
+  animation-delay: calc(
+    var(--base-ani-delay) + var(--secondary-ani-delay) +
+      var(--secondary-ani-delay) + var(--secondary-ani-delay)+
+      var(--secondary-ani-delay)
+  );
   display: flex;
   flex-direction: column;
 
@@ -116,6 +122,24 @@
 
   .shopNowButton {
     align-self: center;
+    background-color: white;
+
+    a {
+      color: black;
+    }
+  }
+
+  .bestSellersCards {
+    max-width: 1500px;
+    margin: 0 auto;
+
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: repeat(3, auto); */
+    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    gap: var(--spacing);
+
+    padding: var(--padding);
   }
 }
 
@@ -143,6 +167,13 @@
 }
 
 @keyframes slideIn-intro4 {
+  to {
+    transform: translateX(10rem);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-intro5 {
   to {
     transform: translateX(10rem);
     opacity: 1;
