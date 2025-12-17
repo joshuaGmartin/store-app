@@ -8,15 +8,93 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: lightblue;
-}
+  background-color: white;
+  background-color: transparent;
 
-.logo {
-  text-decoration: none;
-  color: black;
+  .logo {
+    --width: 23rem;
+    min-width: var(--width);
+
+    text-decoration: none;
+    color: black;
+    background-color: lightblue;
+    padding: 0 4rem 0 1rem;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      calc(var(--width) - 3.25rem) 100%,
+      0% 100%
+    );
+
+    transition:
+      min-width 0.25s ease,
+      color 0.25s ease,
+      background-color 0.25s ease;
+
+    &:hover {
+      color: white;
+      background-color: lightslategray;
+
+      min-width: calc(var(--width) + 1rem);
+    }
+  }
 }
 
 .navBar {
+  --width: 14rem;
+  min-width: var(--width);
+
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: end;
+
+  background-color: lightblue;
+  padding: 0 1rem 0 0rem;
+  clip-path: polygon(2rem 0%, 100% 0%, 100% 100%, 0% 100%);
+
+  transition:
+    min-width 0.25s ease,
+    color 0.25s ease,
+    background-color 0.25s ease;
+
+  &:hover {
+    a {
+      color: white;
+    }
+    background-color: lightslategray;
+    min-width: calc(var(--width) * 1.1);
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .cartLink {
+    position: relative;
+    .cartCount {
+      position: absolute;
+      top: -10px;
+      right: -11px;
+
+      width: 1.25rem;
+      height: 1.25rem;
+
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 0.85rem;
+      color: white;
+      font-weight: bold;
+
+      background-color: cadetblue;
+      margin: none;
+      padding: none;
+    }
+  }
 }

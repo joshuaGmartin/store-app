@@ -3,6 +3,7 @@ import { CartContext } from "../../App";
 import { getNumItems } from "../../modules/handleCart";
 import { Link } from "react-router";
 import styles from "./Header.module.css";
+import { Github, ShoppingCart, Store, House } from "lucide-react";
 
 function Header() {
   const { userCart } = useContext(CartContext);
@@ -13,9 +14,23 @@ function Header() {
         <h1>the.warehouse.store</h1>
       </Link>
       <nav className={styles.navBar}>
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/cart">Cart ({getNumItems(userCart)})</Link>
+        <Link to="/">
+          <House />
+        </Link>
+        <Link to="/shop">
+          <Store />
+        </Link>
+        <Link className={styles.cartLink} to="/cart">
+          <ShoppingCart />
+          <div className={styles.cartCount}>{getNumItems(userCart)}</div>
+        </Link>
+        <a
+          href="https://github.com/joshuaGmartin/store-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github />
+        </a>
       </nav>
     </div>
   );
