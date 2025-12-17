@@ -11,7 +11,7 @@ function HomeProductCard({ itemData }) {
       </div>
       <div className={styles.info}>
         <div className={styles.starsAndPrice}>
-          <p>${itemData.price.toFixed(2)}</p>
+          <p className={styles.price}>${itemData.price.toFixed(2)}</p>
           <RatingStars className={styles.stars} rate={itemData.rating.rate} />
         </div>
         <button>

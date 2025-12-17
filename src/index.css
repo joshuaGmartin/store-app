@@ -41,14 +41,22 @@ button a {
 }
 
 button {
+  --width: 15rem;
+
   color: black;
   padding: 0.5rem 3rem;
   border: none;
   clip-path: polygon(16% 0%, 100% 0%, 84% 100%, 0% 100%);
-  width: 15rem;
+  width: var(--width);
 
   background-color: lightslategray;
   /* background-color: oklch(96.8% 0.007 247.896); */
+
+  transition: width 0.25s ease;
+
+  &:hover {
+    width: calc(1.1 * var(--width));
+  }
 }
 
 h1,

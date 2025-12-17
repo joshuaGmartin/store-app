@@ -4,13 +4,17 @@
   --secondary-ani-delay: 1.5s;
   --intro-slide-width: 1000rem;
   --tablet-size: 1100px;
+  --last-ani-add-delay: 0.5s;
+  --last-ani-dur: 1s;
 
   /* test */
-  /* --base-ani-delay: 0s; */
-  /* --ani-dur: 0s; */
-  /* --secondary-ani-delay: 0s; */
+  /* --base-ani-delay: 0s;
+  --ani-dur: 0s;
+  --secondary-ani-delay: 0s;
+  --last-ani-add-delay: 0s;
+  --last-ani-dur: 0s; */
 
-  --spacing-top: 2.5rem;
+  --spacing-top: 5rem;
 }
 
 .introText {
@@ -109,12 +113,15 @@
 }
 
 .intro5 {
-  animation: slideIn-intro5 var(--ani-dur) ease-out forwards;
+  animation: slideIn-intro5 var(--last-ani-dur) ease-out forwards;
   animation-delay: calc(
     var(--base-ani-delay) + var(--secondary-ani-delay) +
-      var(--secondary-ani-delay) + var(--secondary-ani-delay)+
-      var(--secondary-ani-delay)
+      var(--secondary-ani-delay) + var(--secondary-ani-delay) +
+      var(--secondary-ani-delay) + var(--last-ani-add-delay)
   );
+  transform: translateY(5vh);
+  opacity: 0;
+
   display: flex;
   flex-direction: column;
 
@@ -129,14 +136,23 @@
     }
   }
 
+  h3.bestSellerTitle {
+    font-size: 3rem;
+
+    border-bottom: black 1px solid;
+    text-align: center;
+    width: 40rem;
+    margin: 5rem auto 1rem;
+  }
+
   .bestSellersCards {
     max-width: 1500px;
     margin: 0 auto;
 
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: repeat(3, 1fr);
     /* grid-template-columns: repeat(3, auto); */
-    grid-template-columns: repeat(3, minmax(min-content, 1fr));
+    /* grid-template-columns: repeat(3, minmax(min-content, 1fr)); */
     gap: var(--spacing);
 
     padding: var(--padding);
@@ -175,7 +191,7 @@
 
 @keyframes slideIn-intro5 {
   to {
-    transform: translateX(10rem);
+    transform: translateY(0);
     opacity: 1;
   }
 }

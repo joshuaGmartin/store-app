@@ -42,7 +42,7 @@ function Home() {
           <Link to="/shop">Shop now</Link>
         </button>
         <div className={styles.topItemsWrapper}>
-          <h3>Best Sellers</h3>
+          <h3 className={styles.bestSellerTitle}>Best Sellers</h3>
           {!sortedItemsData ? (
             <Loading />
           ) : (
