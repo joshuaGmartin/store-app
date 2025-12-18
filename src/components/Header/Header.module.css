@@ -1,4 +1,7 @@
 .header {
+  --header-diag-offset: 2.85rem;
+  --header-hover-mult: 1.1;
+
   position: sticky;
   z-index: 999;
   top: 0;
@@ -19,15 +22,22 @@
     color: black;
     background-color: lightblue;
     padding: 0 4rem 0 1rem;
-    clip-path: polygon(
+    /* clip-path: polygon(
       0% 0%,
       100% 0%,
       calc(var(--width) - 3.25rem) 100%,
+      0% 100%
+    ); */
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      calc(var(--width) - var(--header-diag-offset)) 100%,
       0% 100%
     );
 
     transition:
       min-width 0.25s ease,
+      clip-path 0.25s ease,
       color 0.25s ease,
       background-color 0.25s ease;
 
@@ -35,13 +45,22 @@
       color: white;
       background-color: lightslategray;
 
-      min-width: calc(var(--width) + 1rem);
+      min-width: calc(var(--width) * var(--header-hover-mult));
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        calc(
+            var(--width) * var(--header-hover-mult) - var(--header-diag-offset)
+          )
+          100%,
+        0% 100%
+      );
     }
   }
 }
 
 .navBar {
-  --width: 14rem;
+  --width: 15rem;
   min-width: var(--width);
 
   display: flex;
@@ -52,7 +71,7 @@
 
   background-color: lightblue;
   padding: 0 1rem 0 0rem;
-  clip-path: polygon(2rem 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(var(--header-diag-offset) 0%, 100% 0%, 100% 100%, 0% 100%);
 
   transition:
     min-width 0.25s ease,
@@ -64,12 +83,17 @@
       color: white;
     }
     background-color: lightslategray;
-    min-width: calc(var(--width) * 1.1);
+    min-width: calc(var(--width) * var(--header-hover-mult));
   }
 
   a {
     text-decoration: none;
     color: black;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .cartLink {

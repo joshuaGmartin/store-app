@@ -35,15 +35,15 @@ Catch All
 -----------------------------------------------------------------
  */
 
-button a {
-  text-decoration: none;
-  color: white;
-}
-
-button {
+.diagButton {
   --width: 15rem;
 
-  color: black;
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  text-decoration: none;
+
   padding: 0.5rem 3rem;
   border: none;
   clip-path: polygon(16% 0%, 100% 0%, 84% 100%, 0% 100%);
@@ -56,6 +56,12 @@ button {
 
   &:hover {
     width: calc(1.1 * var(--width));
+  }
+
+  button {
+    color: white;
+    border: none;
+    background-color: transparent;
   }
 }
 

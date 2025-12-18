@@ -38,9 +38,9 @@ function Home() {
         <h2 className={styles.intro4}>on overstocked items</h2>
       </div>
       <div className={styles.intro5}>
-        <button className={styles.shopNowButton}>
-          <Link to="/shop">Shop now</Link>
-        </button>
+        <Link className={`${styles.shopNowButton} diagButton`} to="/shop">
+          <button>Shop now</button>
+        </Link>
         <div className={styles.topItemsWrapper}>
           <h3 className={styles.bestSellerTitle}>Best Sellers</h3>
           {!sortedItemsData ? (

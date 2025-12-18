@@ -3,7 +3,7 @@
   background-color: white;
   padding: var(--padding);
 
-  height: 28rem;
+  height: 30rem;
 
   display: flex;
   flex-direction: column;
@@ -31,35 +31,40 @@
 
   background-repeat: no-repeat;
 
-  .imgAndTitle {
-    img {
-      /* max-height: 17.5rem; */
-      margin: 0 auto;
-      max-height: 15rem;
-      /* max-width: 75%; */
-    }
-  }
-
-  .info {
+  .topSection {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    justify-content: space-between;
 
-    .starsAndPrice {
+    .imgWrapper {
+      height: 100%;
+
       display: flex;
       justify-content: center;
-      /* align-content: center; */
       align-items: center;
 
-      gap: 2rem;
-
-      .price {
-        font-weight: bold;
+      img {
+        /* max-height: 17.5rem; */
+        margin: 0 auto;
+        max-height: 15rem;
+        /* max-width: 75%; */
       }
     }
 
-    button {
+    .info {
+      .price {
+        /* font-weight: bold; */
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .viewProdButtonWrapper {
+    position: relative;
+    .viewProdButton {
       align-self: center;
+      position: relative;
     }
   }
 }

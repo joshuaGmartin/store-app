@@ -37,7 +37,7 @@ function getStars(rate) {
     <>
       <div className={styles.starsContainer}>
         {starsArr}
-        {rate}
+        <span>({rate})</span>
       </div>
     </>
   );
