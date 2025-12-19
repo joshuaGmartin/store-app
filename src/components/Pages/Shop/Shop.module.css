@@ -1,0 +1,48 @@
+.shopBody {
+  display: flex;
+
+  .sortAndFilterSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+
+    padding: var(--padding);
+    margin: var(--spacing);
+    margin-top: 0;
+
+    /* min-height: 30rem; */
+
+    position: sticky;
+    height: fit-content;
+    top: 4rem;
+
+    background-color: var(--bg-color-dark);
+    color: white;
+
+    .filterSortTitle {
+      font-weight: 400;
+      border-bottom: white solid 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .filterSortChoices {
+    }
+
+    .resetButton {
+      appearance: none;
+      border: none;
+      margin: 0 auto;
+
+      transition: transform 0.15s ease;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .productCards {
+    padding-top: var(--padding);
+  }
+}

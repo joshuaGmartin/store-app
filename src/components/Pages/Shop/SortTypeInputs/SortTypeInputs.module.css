@@ -1,0 +1,17 @@
+.sortLine {
+  display: flex;
+  justify-content: space-between;
+
+  .arrows {
+    display: flex;
+    justify-content: end;
+
+    label {
+      > * {
+        margin: 0;
+        padding: 0;
+        gap: 0;
+      }
+    }
+  }
+}

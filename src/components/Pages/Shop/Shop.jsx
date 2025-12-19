@@ -8,6 +8,7 @@ import { sortItems } from "../../../modules/util.js";
 import styles from "./Shop.module.css";
 import Loading from "../../SingleElements/Loading/Loading.jsx";
 import { fetchAllProducts } from "../../../modules/shopAPI.js";
+import { RotateCcw } from "lucide-react";
 
 function Shop() {
   // ===================== handle shopURL context =====================
@@ -75,52 +76,57 @@ function Shop() {
   if (filteredItemsData)
     filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
-  // test
+  // testing
   // return <Loading />;
 
   return (
     <>
       {filteredItemsData_sorted ? (
-        <>
-          <button
-            onClick={() => {
-              updateFilters([], "ratingDes");
-            }}
-          >
-            Reset
-          </button>
-          <div>
-            Filter by:
-            {catData.map((cat) => {
-              return (
-                <CategoryCheckBox
-                  key={cat + "-cat"}
-                  cat={cat}
-                  selectedCats={selectedCats}
-                  setSelectedCats={setSelectedCats}
-                />
-              );
-            })}
+        <div className={styles.shopBody}>
+          <div className={styles.sortAndFilterSection}>
+            <div>
+              <h3 className={styles.filterSortTitle}>Filter</h3>
+              <div className={styles.filterSortChoices}>
+                {catData.map((cat) => {
+                  return (
+                    <CategoryCheckBox
+                      key={cat + "-cat"}
+                      cat={cat}
+                      selectedCats={selectedCats}
+                      setSelectedCats={setSelectedCats}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            <div>
+              <h3 className={styles.filterSortTitle}>Sort</h3>
+              <div className={styles.filterSortChoices}>
+                {sortTypes.map((sortType) => {
+                  return (
+                    <SortTypeInputs
+                      key={sortType}
+                      sortType={sortType}
+                      selectedSort={selectedSort}
+                      setSelectedSort={setSelectedSort}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            <RotateCcw
+              className={styles.resetButton}
+              onClick={() => {
+                updateFilters([], "ratingDes");
+              }}
+            />
           </div>
-          <div>
-            Sort by:{" "}
-            {sortTypes.map((sortType) => {
-              return (
-                <SortTypeInputs
-                  key={sortType}
-                  sortType={sortType}
-                  selectedSort={selectedSort}
-                  setSelectedSort={setSelectedSort}
-                />
-              );
-            })}
-          </div>
-          <div>
+          <div className={styles.productCards}>
             {filteredItemsData_sorted.map((itemData) => {
               return <ShopCard key={itemData.id} itemData={itemData} />;
             })}
           </div>
-        </>
+        </div>
       ) : (
         <Loading />
       )}

@@ -1,4 +1,5 @@
 import styles from "./SortTypeInputs.module.css";
+import { ArrowUp, ArrowDown } from "lucide-react";
 
 export default function SortTypeInputs({
   sortType,
@@ -10,26 +11,28 @@ export default function SortTypeInputs({
   const ascValue = sortType + "Asc";
 
   return (
-    <div>
+    <div className={styles.sortLine}>
       <span>{label + ":"}</span>
-      <label htmlFor={desValue}>
-        Descending
-        <input
-          type="radio"
-          id={desValue}
-          checked={selectedSort === desValue}
-          onChange={() => setSelectedSort(desValue)}
-        />
-      </label>
-      <label htmlFor={ascValue}>
-        Ascending
-        <input
-          type="radio"
-          id={ascValue}
-          checked={selectedSort === ascValue}
-          onChange={() => setSelectedSort(ascValue)}
-        />
-      </label>
+      <div className={styles.arrows}>
+        <label htmlFor={desValue}>
+          <input
+            type="radio"
+            id={desValue}
+            checked={selectedSort === desValue}
+            onChange={() => setSelectedSort(desValue)}
+          />
+          <ArrowDown />
+        </label>
+        <label htmlFor={ascValue}>
+          <input
+            type="radio"
+            id={ascValue}
+            checked={selectedSort === ascValue}
+            onChange={() => setSelectedSort(ascValue)}
+          />
+          <ArrowUp />
+        </label>
+      </div>
     </div>
   );
 }

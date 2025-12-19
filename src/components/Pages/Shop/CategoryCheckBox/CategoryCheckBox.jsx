@@ -65,7 +65,6 @@ export default function CategoryCheckBox({
   return (
     <div key={cat + "-cat"}>
       <label htmlFor={cat + "-cat"}>
-        {cat.charAt(0).toUpperCase() + cat.slice(1)}
         <input
           type="checkbox"
           id={cat + "-cat"}
@@ -73,6 +72,7 @@ export default function CategoryCheckBox({
           onChange={() => setSelectedCats(cat)}
           checked={selectedCats.includes(cat)}
         />
+        {cat.charAt(0).toUpperCase() + cat.slice(1)}
       </label>
     </div>
   );

@@ -31,6 +31,16 @@
 
   background-repeat: no-repeat;
 
+  --clip: 2rem;
+  clip-path: polygon(
+    var(--clip) 0%,
+    100% 0%,
+    100% calc(100% - var(--clip)),
+    calc(100% - var(--clip)) 100%,
+    0% 100%,
+    0% var(--clip)
+  );
+
   .topSection {
     height: 100%;
     display: flex;
