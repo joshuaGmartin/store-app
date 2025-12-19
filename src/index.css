@@ -36,26 +36,45 @@ Catch All
  */
 
 .diagButton {
-  --width: 15rem;
+  --width: 14rem;
+  --mult: 1.1;
+  --margin-calc: calc((var(--width) * var(--mult) - var(--width)) / 2);
+  --diag-offset: 2.4rem;
 
-  position: relative;
+  margin: 0 var(--margin-calc);
+
   display: flex;
   justify-content: center;
 
   text-decoration: none;
 
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 0;
   border: none;
-  clip-path: polygon(16% 0%, 100% 0%, 84% 100%, 0% 100%);
+  clip-path: polygon(
+    var(--diag-offset) 0%,
+    100% 0%,
+    calc(var(--width) - var(--diag-offset)) 100%,
+    0% 100%
+  );
   width: var(--width);
 
   background-color: lightslategray;
   /* background-color: oklch(96.8% 0.007 247.896); */
 
-  transition: width 0.25s ease;
+  transition:
+    width 0.25s ease,
+    margin 0.25s ease,
+    clip-path 0.25s ease;
 
   &:hover {
     width: calc(1.1 * var(--width));
+    margin: 0;
+    clip-path: polygon(
+      var(--diag-offset) 0%,
+      100% 0%,
+      calc(var(--width) * var(--mult) - var(--diag-offset)) 100%,
+      0% 100%
+    );
   }
 
   button {

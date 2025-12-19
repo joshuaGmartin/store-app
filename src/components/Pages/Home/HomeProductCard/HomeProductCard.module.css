@@ -60,11 +60,7 @@
     }
   }
 
-  .viewProdButtonWrapper {
-    position: relative;
-    .viewProdButton {
-      align-self: center;
-      position: relative;
-    }
+  .viewProdButton {
+    align-self: center;
   }
 }

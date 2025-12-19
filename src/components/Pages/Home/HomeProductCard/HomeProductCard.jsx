@@ -17,14 +17,12 @@ function HomeProductCard({ itemData }) {
           <p className={styles.price}>${itemData.price.toFixed(2)}</p>
         </div>
       </div>
-      <div className={styles.viewProdButtonWrapper}>
-        <Link
-          className={`${styles.viewProdButton} diagButton`}
-          to={"/product/" + itemData.id}
-        >
-          <button>View Product</button>
-        </Link>
-      </div>
+      <Link
+        className={`${styles.viewProdButton} diagButton`}
+        to={"/product/" + itemData.id}
+      >
+        <button>View Product</button>
+      </Link>
     </div>
   );
 }
