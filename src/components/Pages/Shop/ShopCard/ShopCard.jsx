@@ -21,28 +21,50 @@ function ShopCard({ itemData }) {
 
   return (
     <div className={styles.card}>
-      <img src={itemData.image} />
-      <h3>{itemData.title}</h3>
-      <button>
-        <Link to={"/product/" + itemData.id}>View Product</Link>
-      </button>
-      <p>${itemData.price.toFixed(2)}</p>
-      <RatingStars rate={itemData.rating.rate} />
-      <div>
+      <div className={styles.leftSide}>
+        <Link className={styles.imgWrapper} to={"/product/" + itemData.id}>
+          <img src={itemData.image} />
+        </Link>
+        <div className={styles.viewProdButtonWrapper}>
+          <Link
+            className={`${styles.viewProdButton} diagButton`}
+            to={"/product/" + itemData.id}
+          >
+            <button>View Product</button>
+          </Link>
+        </div>
+      </div>
+      <div className={styles.rightSide}>
+        <div className={styles.rightTopSide}>
+          <Link className={styles.titleWrapper} to={"/product/" + itemData.id}>
+            <h3>{itemData.title}</h3>
+          </Link>
+          <div className={styles.stars}>
+            <RatingStars rate={itemData.rating.rate} />
+          </div>
+          <p className={styles.price}>${itemData.price.toFixed(2)}</p>
+        </div>
         {/* Deciding against manual input */}
-        <span className={styles["arrow-container"]}>
-          <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
-        </span>
-        <span className={styles.quantity}>{quantity}</span>
-        <span className={styles["arrow-container"]}>
-          <ChevronUp onClick={handleArrowUp} />
-        </span>
-        <AddToCartBtn
-          itemData={itemData}
-          quantity={quantity}
-          userCart={userCart}
-          setUserCart={setUserCart}
-        />
+        <div className={styles.addToCartSection}>
+          <div className={styles.arrowsAndQuantity}>
+            <span className={styles["arrow-container"]}>
+              <ChevronDown
+                className={styles.arrowIcon}
+                onClick={handleArrowDown}
+              />
+            </span>
+            <span className={styles.quantity}>{quantity}</span>
+            <span className={styles["arrow-container"]}>
+              <ChevronUp onClick={handleArrowUp} />
+            </span>
+          </div>
+          <AddToCartBtn
+            itemData={itemData}
+            quantity={quantity}
+            userCart={userCart}
+            setUserCart={setUserCart}
+          />
+        </div>
       </div>
     </div>
   );

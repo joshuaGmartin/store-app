@@ -1,10 +1,10 @@
 .sortLine {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
   .arrowsAndInputs {
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
 
     label {
       > * {

@@ -1,0 +1,7 @@
+.addToCartBtn {
+  background-color: var(--bg-color-secondary) !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

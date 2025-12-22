@@ -7,10 +7,20 @@ function HomeProductCard({ itemData }) {
     <div className={styles.card}>
       <div className={styles.topSection}>
         <div className={styles.imgWrapper}>
-          <img src={itemData.image} />
+          <Link
+            className={styles.viewProdButton}
+            to={"/product/" + itemData.id}
+          >
+            <img src={itemData.image} />
+          </Link>
         </div>
         <div className={styles.info}>
-          <h3>{itemData.title}</h3>
+          <Link
+            className={styles.viewProdButton}
+            to={"/product/" + itemData.id}
+          >
+            <h3>{itemData.title}</h3>
+          </Link>
           <div className={styles.stars}>
             <RatingStars rate={itemData.rating.rate} />
           </div>

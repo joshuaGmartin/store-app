@@ -10,7 +10,11 @@ function AddToCartBtn({ itemData, quantity, userCart, setUserCart }) {
     pushNotice("add");
   }
 
-  return <button onClick={handleClick}>Add to Cart</button>;
+  return (
+    <div className={`${styles.addToCartBtn} diagButton`} onClick={handleClick}>
+      Add to Cart
+    </div>
+  );
 }
 
 export default AddToCartBtn;

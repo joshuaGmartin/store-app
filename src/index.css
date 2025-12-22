@@ -41,6 +41,7 @@ Catch All
   --mult: 1.1;
   --margin-calc: calc((var(--width) * var(--mult) - var(--width)) / 2);
   --diag-offset: 2.4rem;
+  height: fit-content;
 
   margin: 0 var(--margin-calc);
 
@@ -58,6 +59,7 @@ Catch All
     0% 100%
   );
   width: var(--width);
+  min-width: var(--width);
 
   background-color: lightslategray;
   /* background-color: oklch(96.8% 0.007 247.896); */
