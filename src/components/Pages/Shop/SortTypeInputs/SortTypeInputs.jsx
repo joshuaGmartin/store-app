@@ -13,7 +13,7 @@ export default function SortTypeInputs({
   return (
     <div className={styles.sortLine}>
       <span>{label + ":"}</span>
-      <div className={styles.arrows}>
+      <div className={styles.arrowsAndInputs}>
         <label htmlFor={desValue}>
           <input
             type="radio"
@@ -21,7 +21,9 @@ export default function SortTypeInputs({
             checked={selectedSort === desValue}
             onChange={() => setSelectedSort(desValue)}
           />
-          <ArrowDown />
+          <ArrowDown
+            className={selectedSort === desValue ? styles.selectedArrow : null}
+          />
         </label>
         <label htmlFor={ascValue}>
           <input
@@ -30,7 +32,9 @@ export default function SortTypeInputs({
             checked={selectedSort === ascValue}
             onChange={() => setSelectedSort(ascValue)}
           />
-          <ArrowUp />
+          <ArrowUp
+            className={selectedSort === ascValue ? styles.selectedArrow : null}
+          />
         </label>
       </div>
     </div>

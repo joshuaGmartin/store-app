@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
 
-  .arrows {
+  .arrowsAndInputs {
     display: flex;
     justify-content: end;
 
@@ -11,6 +11,18 @@
         margin: 0;
         padding: 0;
         gap: 0;
+      }
+
+      input {
+        display: none;
+      }
+
+      svg {
+        /* outline: red solid 1px; */
+        border-radius: 50%;
+      }
+      .selectedArrow {
+        background-color: dodgerblue;
       }
     }
   }
