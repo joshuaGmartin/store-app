@@ -17,15 +17,17 @@ export default function Loading() {
 
   return (
     <div className={styles.loadingContainer}>
-      {loadingTextArr.map((char, index) => {
-        if (index === colorCharIndex) {
-          return (
-            <span key={index} className={styles.coloredChar}>
-              {char}
-            </span>
-          );
-        } else return <span key={index}>{char}</span>;
-      })}
+      <div className={styles.loadingWrapper}>
+        {loadingTextArr.map((char, index) => {
+          if (index === colorCharIndex) {
+            return (
+              <i key={index} className={styles.coloredChar}>
+                {char}
+              </i>
+            );
+          } else return <i key={index}>{char}</i>;
+        })}
+      </div>
     </div>
   );
 }

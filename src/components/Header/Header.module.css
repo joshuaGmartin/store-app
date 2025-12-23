@@ -11,8 +11,8 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: white;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: var(--bg-color-secondary);
 
   .logo {
     --width: 23rem;
