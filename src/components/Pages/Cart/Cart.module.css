@@ -1,3 +1,36 @@
-.total-section {
-  outline: black solid 1px;
+.cartBody {
+  display: flex;
+
+  max-width: 1500px;
+  min-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: var(--padding);
+
+  .cartItems {
+    width: 100%;
+
+    .emptyCart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--padding);
+
+      height: 100%;
+
+      p {
+        font-size: 2rem;
+      }
+    }
+
+    .cartCards {
+      width: 100%;
+    }
+  }
+
+  .total-section {
+    background-color: white;
+  }
 }

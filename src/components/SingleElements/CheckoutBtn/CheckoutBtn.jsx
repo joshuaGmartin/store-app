@@ -7,14 +7,12 @@ function CheckoutBtn() {
   const { userCart } = useContext(CartContext);
 
   return (
-    <button disabled={userCart.length === 0}>
-      <Link
-        to="/checkout"
-        className={userCart.length === 0 ? styles["disabled-Link"] : null}
-      >
-        Checkout
-      </Link>
-    </button>
+    <Link
+      to="/checkout"
+      className={`${userCart.length === 0 ? styles["disabled-Link"] : null} diagButton ${styles.checkoutBtn}`}
+    >
+      <button disabled={userCart.length === 0}>Checkout</button>
+    </Link>
   );
 }
 

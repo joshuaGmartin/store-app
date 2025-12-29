@@ -7,3 +7,11 @@
 button:disabled {
   cursor: initial !important;
 }
+
+.checkoutBtn {
+  background-color: lightblue !important;
+
+  button {
+    color: black !important;
+  }
+}
