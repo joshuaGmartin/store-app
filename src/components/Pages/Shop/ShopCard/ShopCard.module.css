@@ -129,13 +129,12 @@
         }
       }
     }
+  }
+  .viewProdButtonWrapper {
+    height: 100%;
 
-    .viewProdButtonWrapper {
-      height: 100%;
-
-      display: flex;
-      justify-content: center;
-      align-items: end;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

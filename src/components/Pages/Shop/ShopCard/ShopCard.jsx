@@ -26,10 +26,7 @@ function ShopCard({ itemData }) {
           <img src={itemData.image} />
         </Link>
         <div className={styles.viewProdButtonWrapper}>
-          <Link
-            className={`${styles.viewProdButton} diagButton`}
-            to={"/product/" + itemData.id}
-          >
+          <Link className={"diagButton"} to={"/product/" + itemData.id}>
             <button>View Product</button>
           </Link>
         </div>

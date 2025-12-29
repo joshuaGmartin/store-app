@@ -25,19 +25,29 @@ function CartCard({ itemData }) {
 
   return (
     <div className={styles.card}>
-      <img src={itemData.image} />
-      <h3>{itemData.title}</h3>
-      <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
-      <div>
-        {/* Deciding against manual input */}
-        <span className={styles["arrow-container"]}>
-          <ChevronDown className={styles.arrowIcon} onClick={handleArrowDown} />
-        </span>
-        <span className={styles.quantity}>{itemData.count}</span>
-        <span className={styles["arrow-container"]}>
-          <ChevronUp onClick={handleArrowUp} />
-        </span>
-        <button onClick={handleRemoveFromCart}>Remove</button>
+      <div className={styles.imgWrapper}>
+        <img src={itemData.image} />
+      </div>
+      <div className={styles.rightSection}>
+        <div className={styles.topRightSection}>
+          <h3>{itemData.title}</h3>
+          <p className={styles.price}>${itemData.price.toFixed(2)}</p>
+        </div>
+        <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
+        <div>
+          {/* Deciding against manual input */}
+          <span className={styles["arrow-container"]}>
+            <ChevronDown
+              className={styles.arrowIcon}
+              onClick={handleArrowDown}
+            />
+          </span>
+          <span className={styles.quantity}>{itemData.count}</span>
+          <span className={styles["arrow-container"]}>
+            <ChevronUp onClick={handleArrowUp} />
+          </span>
+          <button onClick={handleRemoveFromCart}>Remove</button>
+        </div>
       </div>
     </div>
   );
