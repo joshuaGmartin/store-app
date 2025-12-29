@@ -40,7 +40,7 @@ function ShopCard({ itemData }) {
             <h3>{itemData.title}</h3>
           </Link>
           <div className={styles.stars}>
-            <RatingStars rate={itemData.rating.rate} />
+            <RatingStars rating={itemData.rating} />
           </div>
           <p className={styles.price}>${itemData.price.toFixed(2)}</p>
         </div>

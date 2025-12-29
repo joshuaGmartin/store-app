@@ -1,0 +1,153 @@
+.productBody {
+  padding: var(--padding);
+
+  .card {
+    padding: var(--padding);
+    min-width: 1100px;
+    max-width: 1500px;
+
+    margin: 0 auto;
+
+    background-color: white;
+
+    --bg: white;
+    background-color: var(--bg);
+
+    --cut: 3rem;
+    --cut-bg: var(--bg-color-primary);
+    /* --cut-bg: lightblue; */
+
+    background:
+    /* linear-gradient(135deg, var(--cut-bg) 0 50%, transparent 50%) top left, */
+      linear-gradient(225deg, var(--cut-bg) 0 50%, transparent 50%) top right,
+      /* linear-gradient(315deg, var(--cut-bg) 0 50%, transparent 50%) bottom right, */
+        linear-gradient(45deg, var(--cut-bg) 0 50%, transparent 50%) bottom left,
+      var(--bg);
+
+    background-size:
+      var(--cut) var(--cut),
+      var(--cut) var(--cut),
+      var(--cut) var(--cut),
+      var(--cut) var(--cut),
+      100% 100%;
+
+    background-repeat: no-repeat;
+
+    .topSection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing);
+
+      .imgWrapper {
+        padding: var(--padding);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        --bg: lightblue;
+        background-color: var(--bg);
+
+        --cut: 20rem;
+        --cut-bg: white;
+        /* --cut-bg: lightblue; */
+
+        background:
+        /* linear-gradient(135deg, var(--cut-bg) 0 50%, transparent 50%) top left, */
+          linear-gradient(225deg, var(--cut-bg) 0 50%, transparent 50%) top
+            right,
+          /* linear-gradient(315deg, var(--cut-bg) 0 50%, transparent 50%) bottom right, */
+            linear-gradient(45deg, var(--cut-bg) 0 50%, transparent 50%) bottom
+            left,
+          var(--bg);
+
+        background-size:
+          var(--cut) var(--cut),
+          var(--cut) var(--cut),
+          var(--cut) var(--cut),
+          var(--cut) var(--cut),
+          100% 100%;
+
+        background-repeat: no-repeat;
+
+        img {
+          max-height: fit-content;
+        }
+      }
+
+      .rightSide {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing);
+
+        h3 {
+          font-weight: 400;
+          font-size: 2rem;
+        }
+
+        .catAndStars {
+          display: flex;
+          align-items: center;
+
+          gap: var(--spacing);
+
+          h4 {
+            font-weight: 400;
+          }
+        }
+
+        .price {
+          font-size: 2rem;
+        }
+
+        .description {
+          margin-top: var(--spacing);
+        }
+      }
+    }
+
+    .addToCartSection {
+      flex-grow: 1;
+      justify-self: center;
+      align-self: center;
+
+      display: flex;
+      align-items: center;
+
+      /* align-items: center; */
+      /* min-width: max-content; */
+      /* height: 100%; */
+
+      .arrowsAndQuantity {
+        height: fit-content;
+
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+
+        .arrow-container {
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .quantity {
+          /* border-bottom: 1px solid black; */
+        }
+      }
+
+      .addToCartBtn {
+        background-color: var(--bg-color-secondary);
+
+        * {
+          color: black;
+        }
+      }
+    }
+
+    .contShopBtnWrapper {
+      display: flex;
+      justify-content: center;
+
+      margin-top: var(--spacing);
+    }
+  }
+}

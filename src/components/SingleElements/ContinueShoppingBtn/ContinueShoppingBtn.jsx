@@ -7,10 +7,9 @@ function ContinueShoppingBtn() {
   const { shopURL } = useContext(ShopContext);
 
   return (
-    <button>
-      {/* <Link to="/shop">Continue shopping</Link> */}
-      <Link to={shopURL}>Continue shopping</Link>
-    </button>
+    <Link to={shopURL} className="diagButton">
+      <button>Continue shopping</button>
+    </Link>
   );
 }
 

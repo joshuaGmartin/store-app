@@ -1,12 +1,12 @@
 import { Star } from "lucide-react";
 import styles from "./RatingStars.module.css";
 
-export default function RatingStars({ rate }) {
-  return getStars(rate);
+export default function RatingStars({ rating }) {
+  return getStars(rating);
 }
 
-function getStars(rate) {
-  let tracker = rate;
+function getStars(rating) {
+  let tracker = rating.rate;
 
   // rating is out of 5 stars
   let starsArr = [];
@@ -37,7 +37,7 @@ function getStars(rate) {
     <>
       <div className={styles.starsContainer}>
         {starsArr}
-        <span>({rate})</span>
+        <span>({rating.count})</span>
       </div>
     </>
   );

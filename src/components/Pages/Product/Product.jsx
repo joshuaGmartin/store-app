@@ -8,6 +8,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import AddToCartBtn from "../../SingleElements/AddToCartBtn/AddToCartBtn";
 import Loading from "../../SingleElements/Loading/Loading";
 import { fetchProduct } from "../../../modules/shopAPI";
+import RatingStars from "../../SingleElements/RatingStars/RatingStars";
 
 function Product() {
   const { itemID } = useParams();
@@ -35,41 +36,56 @@ function Product() {
     return <ErrorPage />;
   } else {
     return (
-      <>
+      <div className={styles.productBody}>
         {itemData ? (
           <div className={styles.card}>
-            <img src={itemData.image} />
-            <h3>{itemData.title}</h3>
-            <p>{itemData.description}</p>
-            <p>{itemData.category}</p>
-            <p>{itemData.rating.count}</p>
-            <p>{itemData.rating.rate}</p>
-            <p>${itemData.price.toFixed(2)}</p>
-            <div>
-              <span className={styles["arrow-container"]}>
-                <ChevronDown
-                  className={styles.arrowIcon}
-                  onClick={handleArrowDown}
-                />
-              </span>
-              <span className={styles.quantity}>{quantity}</span>
-              <span className={styles["arrow-container"]}>
-                <ChevronUp onClick={handleArrowUp} />
-              </span>
-              {/* <button onClick={handleAddToCart}>Add to Cart</button> */}
-              <AddToCartBtn
-                itemData={itemData}
-                quantity={quantity}
-                userCart={userCart}
-                setUserCart={setUserCart}
-              />
+            <div className={styles.topSection}>
+              <div className={styles.imgWrapper}>
+                <img src={itemData.image} />
+              </div>
+              <div className={styles.rightSide}>
+                <div>
+                  <h3>{itemData.title}</h3>
+                  <div className={styles.catAndStars}>
+                    <h4>
+                      {itemData.category.charAt(0).toUpperCase() +
+                        itemData.category.slice(1)}
+                    </h4>
+                    <RatingStars rating={itemData.rating} />
+                  </div>
+                  <p className={styles.price}>${itemData.price.toFixed(2)}</p>
+                  <p className={styles.description}>{itemData.description}</p>
+                </div>
+                <div className={styles.addToCartSection}>
+                  <div className={styles.arrowsAndQuantity}>
+                    <span className={styles["arrow-container"]}>
+                      <ChevronDown
+                        className={styles.arrowIcon}
+                        onClick={handleArrowDown}
+                      />
+                    </span>
+                    <span className={styles.quantity}>{quantity}</span>
+                    <span className={styles["arrow-container"]}>
+                      <ChevronUp onClick={handleArrowUp} />
+                    </span>
+                  </div>
+                  <AddToCartBtn
+                    itemData={itemData}
+                    quantity={quantity}
+                    userCart={userCart}
+                    setUserCart={setUserCart}
+                  />
+                </div>
+              </div>
             </div>
-            <ContinueShoppingBtn />
+            <div className={styles.contShopBtnWrapper}>
+              <ContinueShoppingBtn className={styles.contShopBtn} />
+            </div>
           </div>
         ) : (
           <Loading />
         )}
-      </>
+      </div>
     );
   }
 }
