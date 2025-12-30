@@ -14,16 +14,31 @@ function TotalSection() {
   const tax = subtotal * taxRate;
 
   return (
-    <>
-      <div>Subtotal: ${subtotal.toFixed(2)}</div>
-      <div>Shipping (flat fee): ${shipping.toFixed(2)}</div>
-      <div>
-        Estimated Tax ({taxRate * 100}%): ${(subtotal * 0.05).toFixed(2)}
+    <div className={styles.totalsSection}>
+      <div className={styles.totalsLines}>
+        <div className={styles.totalsLine}>
+          <span>Subtotal:</span>
+          <span>${subtotal.toFixed(2)}</span>
+        </div>
+        <div className={styles.totalsLine}>
+          <span>Shipping (flat fee):</span>
+          <span>${shipping.toFixed(2)}</span>
+        </div>
+        <div className={styles.totalsLine}>
+          <span>Estimated Tax ({taxRate * 100}%):</span>
+          <span>${(subtotal * 0.05).toFixed(2)}</span>
+        </div>
+        <hr />
+        <div className={styles.totalsLine}>
+          <span>Total:</span>
+          <span>${(subtotal + shipping + tax).toFixed(2)}</span>
+        </div>
       </div>
-      <div>Total: ${(subtotal + shipping + tax).toFixed(2)}</div>
-      <CheckoutBtn />
-      <ContinueShoppingBtn />
-    </>
+      <div className={styles.buttons}>
+        <CheckoutBtn />
+        <ContinueShoppingBtn />
+      </div>
+    </div>
   );
 }
 

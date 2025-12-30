@@ -1,0 +1,26 @@
+.totalsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .totalsLines {
+    .totalsLine {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    hr {
+      margin: 0.5rem 0;
+    }
+
+    div:last-child {
+      font-weight: 500;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

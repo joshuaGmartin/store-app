@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { CartContext } from "../../../../App";
-import { ChevronUp, ChevronDown } from "lucide-react";
+import { ChevronUp, ChevronDown, Trash2 } from "lucide-react";
 import { addToCart, removeFromCart } from "../../../../modules/handleCart";
 import { useNotice } from "../../../SingleElements/Notifications/Notifications";
 import styles from "./CartCard.module.css";
+import { Link } from "react-router";
 
 function CartCard({ itemData }) {
   const { userCart, setUserCart } = useContext(CartContext);
@@ -25,28 +26,37 @@ function CartCard({ itemData }) {
 
   return (
     <div className={styles.card}>
-      <div className={styles.imgWrapper}>
+      <Link className={styles.imgWrapper} to={"/product/" + itemData.id}>
         <img src={itemData.image} />
-      </div>
+      </Link>
       <div className={styles.rightSection}>
         <div className={styles.topRightSection}>
-          <h3>{itemData.title}</h3>
+          <Link className={styles.titleWrapper} to={"/product/" + itemData.id}>
+            <h3>{itemData.title}</h3>
+          </Link>
           <p className={styles.price}>${itemData.price.toFixed(2)}</p>
         </div>
-        <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
-        <div>
-          {/* Deciding against manual input */}
-          <span className={styles["arrow-container"]}>
-            <ChevronDown
-              className={styles.arrowIcon}
-              onClick={handleArrowDown}
+        <div className={styles.bottomRightSection}>
+          <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
+          <div className={styles.arrowsAndTrash}>
+            {/* Deciding against manual input */}
+            <div className={styles.arrows}>
+              <span className={styles["arrow-container"]}>
+                <ChevronDown
+                  className={styles.arrowIcon}
+                  onClick={handleArrowDown}
+                />
+              </span>
+              <span className={styles.quantity}>{itemData.count}</span>
+              <span className={styles["arrow-container"]}>
+                <ChevronUp onClick={handleArrowUp} />
+              </span>
+            </div>
+            <Trash2
+              onClick={handleRemoveFromCart}
+              className={styles.removeFromCartButton}
             />
-          </span>
-          <span className={styles.quantity}>{itemData.count}</span>
-          <span className={styles["arrow-container"]}>
-            <ChevronUp onClick={handleArrowUp} />
-          </span>
-          <button onClick={handleRemoveFromCart}>Remove</button>
+          </div>
         </div>
       </div>
     </div>

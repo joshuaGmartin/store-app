@@ -63,10 +63,23 @@
   }
 
   .rightSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     .topRightSection {
       display: flex;
       justify-content: space-between;
       gap: var(--spacing);
+
+      .titleWrapper {
+        color: var(--color-primary);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
       .price {
         font-size: 2rem;
@@ -75,7 +88,25 @@
   }
 }
 
-.arrow-container {
-  cursor: pointer;
-  user-select: none;
+.arrowsAndTrash {
+  display: flex;
+  gap: var(--spacing);
+
+  .arrows {
+    display: flex;
+
+    .arrow-container {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  .removeFromCartButton {
+    transition: transform 0.15s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
 }

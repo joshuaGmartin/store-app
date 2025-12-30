@@ -1,7 +1,8 @@
-.disabled-Link {
+a.disabled-Link {
   pointer-events: none;
 
   color: gray;
+  opacity: 0.5;
 }
 
 button:disabled {

@@ -147,7 +147,8 @@
       display: flex;
       justify-content: center;
 
-      margin-top: var(--spacing);
+      --margin: 3rem;
+      margin: var(--margin) 0 calc(var(--margin) - 1rem);
     }
   }
 }

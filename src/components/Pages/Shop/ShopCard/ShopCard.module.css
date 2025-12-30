@@ -98,6 +98,8 @@
     .addToCartSection {
       align-self: start;
       justify-self: center;
+      justify-self: end;
+      justify-self: start;
 
       display: flex;
       /* align-items: center; */
