@@ -43,7 +43,7 @@ export function useNotice() {
     setNotices((prev) => [...prev, { id, notice }]);
     setTimeout(() => {
       setNotices((prev) => prev.filter((n) => n.id !== id));
-    }, 3000);
+    }, 2000);
   }
 
   return { pushNotice };

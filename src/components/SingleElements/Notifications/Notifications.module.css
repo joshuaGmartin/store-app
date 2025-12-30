@@ -1,7 +1,36 @@
 .noticesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
   position: fixed;
   z-index: 9999;
 
-  top: 5rem;
+  top: 3.5rem;
   right: 0;
+
+  .noticeContainer {
+    padding: 0.5rem;
+    padding-left: 3rem;
+
+    background-color: var(--bg-color-dark);
+    color: white;
+
+    /* --width: 13rem; */
+    --diag-offset: calc(2.5rem * 0.95);
+
+    /* width: var(--width); */
+
+    clip-path: polygon(var(--diag-offset) 0%, 100% 0%, 100% 100%, 0% 100%);
+
+    animation: slideIn 0.25s ease-out forwards;
+    transform: translateX(210px);
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

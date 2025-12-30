@@ -43,7 +43,6 @@
     margin: var(--spacing) auto;
 
     --width: 45rem;
-    /* --diag-offset: 2.4rem; */
     --diag-offset: calc(10rem * 0.95);
 
     width: var(--width);
