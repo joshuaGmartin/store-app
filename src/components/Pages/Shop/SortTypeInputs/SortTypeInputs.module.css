@@ -4,7 +4,6 @@
 
   .arrowsAndInputs {
     display: flex;
-    /* justify-content: end; */
 
     label {
       > * {
@@ -18,11 +17,10 @@
       }
 
       svg {
-        /* outline: red solid 1px; */
         border-radius: 50%;
       }
       .selectedArrow {
-        background-color: dodgerblue;
+        background-color: rgb(25, 123, 221);
       }
     }
   }

@@ -11,7 +11,6 @@
   justify-content: space-between;
   align-items: center;
 
-  /* background-color: transparent; */
   background-color: var(--bg-color-secondary);
 
   .logo {
@@ -22,12 +21,6 @@
     color: black;
     background-color: lightblue;
     padding: 0 4rem 0 1rem;
-    /* clip-path: polygon(
-      0% 0%,
-      100% 0%,
-      calc(var(--width) - 3.25rem) 100%,
-      0% 100%
-    ); */
     clip-path: polygon(
       0% 0%,
       100% 0%,

@@ -15,8 +15,6 @@
     margin-right: var(--spacing);
     margin-top: 0;
 
-    /* min-height: 30rem; */
-
     position: sticky;
     height: fit-content;
     top: 4rem;
@@ -49,6 +47,6 @@
     flex-direction: column;
     gap: var(--spacing);
 
-    /* padding: var(--padding) 0; */
+    width: 100%;
   }
 }

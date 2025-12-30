@@ -22,38 +22,23 @@
       margin: 0 auto;
 
       .checkoutHeader {
-        /* max-width: 80rem; */
         margin: 0 auto;
 
         .headerTitles {
           display: grid;
-          grid-template-columns: 1fr 2fr 1fr 1fr;
           grid-template-columns: 3fr 1fr 1fr;
 
           justify-items: center;
 
           font-size: 1.25rem;
-
-          span:first-child {
-            /* display: flex; */
-            /* justify-content: center; */
-          }
-
-          .quantAndTotal {
-            /* display: flex; */
-            /* justify-content: space-between; */
-          }
         }
       }
       .cartCards {
         display: flex;
         flex-direction: column;
-        /* gap: var(--spacing); */
 
-        /* max-width: 80rem; */
         margin: 0 auto;
       }
-      /* padding-bottom: var(--padding); */
     }
   }
 }

@@ -15,7 +15,6 @@
 
     --cut: 3rem;
     --cut-bg: var(--bg-color-primary);
-    /* --cut-bg: lightblue; */
 
     background:
     /* linear-gradient(135deg, var(--cut-bg) 0 50%, transparent 50%) top left, */
@@ -49,7 +48,6 @@
 
         --cut: 20rem;
         --cut-bg: white;
-        /* --cut-bg: lightblue; */
 
         background:
         /* linear-gradient(135deg, var(--cut-bg) 0 50%, transparent 50%) top left, */
@@ -113,10 +111,6 @@
       display: flex;
       align-items: center;
 
-      /* align-items: center; */
-      /* min-width: max-content; */
-      /* height: 100%; */
-
       .arrowsAndQuantity {
         height: fit-content;
 
@@ -127,10 +121,6 @@
         .arrow-container {
           cursor: pointer;
           user-select: none;
-        }
-
-        .quantity {
-          /* border-bottom: 1px solid black; */
         }
       }
 

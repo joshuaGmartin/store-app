@@ -62,7 +62,6 @@ Catch All
   min-width: var(--width);
 
   background-color: lightslategray;
-  /* background-color: oklch(96.8% 0.007 247.896); */
 
   transition:
     width 0.25s ease,

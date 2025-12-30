@@ -1,15 +1,4 @@
 export function sortItems(filteredItemsData, selectedSort) {
-  /*
-    sort types:
-
-    priceAsc
-    priceDes
-    ratingAsc
-    ratingDes
-    nameAsc
-    nameDes
-    */
-
   switch (selectedSort) {
     case "priceAsc":
       return priceAscSort(filteredItemsData);

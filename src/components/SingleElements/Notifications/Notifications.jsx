@@ -8,9 +8,6 @@ function Notifications() {
   let noticeElms = [];
 
   notices.forEach((notice, index) => {
-    console.log("notice");
-    console.log(notice.notice);
-
     let message;
     switch (notice.notice) {
       case "add":

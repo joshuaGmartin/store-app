@@ -58,7 +58,6 @@
   h2.intro2 {
     animation: slideIn-intro2 var(--ani-dur) ease-out forwards;
     animation-delay: calc(var(--base-ani-delay) + var(--secondary-ani-delay));
-    /* transform: translateX(var(--intro-slide-width)); */
     transform: translateX(100vw);
     opacity: 0;
 
@@ -151,8 +150,6 @@
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* grid-template-columns: repeat(3, auto); */
-    /* grid-template-columns: repeat(3, minmax(min-content, 1fr)); */
     gap: var(--spacing);
 
     padding: var(--padding);

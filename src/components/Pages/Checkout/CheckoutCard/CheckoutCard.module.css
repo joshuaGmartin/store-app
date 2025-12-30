@@ -1,17 +1,7 @@
-/* testing */
-/* .card {
-  outline: red solid 1px;
-
-  > * {
-    outline: red solid 1px;
-  }
-} */
-
 .card {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
 
-  /* width: calc(1100px - 4rem); */
   height: 10rem;
 
   margin: var(--padding) auto;
@@ -23,12 +13,10 @@
 
     img {
       max-height: 10rem;
-      /* padding-left: var(--padding); */
     }
   }
 
   .titleSection {
-    /* width: 100%; */
     padding: var(--padding);
 
     display: flex;
@@ -37,9 +25,6 @@
 
   .quantitySection,
   .priceSection {
-    /* width: 100%; */
-    /* padding: var(--padding); */
-
     display: flex;
     justify-content: center;
     align-items: center;
