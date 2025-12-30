@@ -21,19 +21,32 @@ function Checkout() {
   }
 
   return (
-    <>
-      <h3>Please review your order</h3>
-      {userCart.length === 0 ? (
-        <div>Your cart is empty</div>
-      ) : (
-        <div>
-          {userCart.map((itemData) => {
-            return <CheckoutCard key={itemData.id} itemData={itemData} />;
-          })}
+    <div className={styles.checkoutBodyWrapper}>
+      <div className={styles.checkoutBody}>
+        <h3 className={styles.topMessage}>Please review your order</h3>
+        <div className={styles.headerAndCards}>
+          <div className={styles.checkoutHeader}>
+            <div className={styles.headerTitles}>
+              <span>Item</span>
+              <span>Quantity</span>
+              <span> Subtotal</span>
+            </div>
+            <hr />
+          </div>
+          <div className={styles.cartCards}>
+            {userCart.map((itemData) => {
+              return (
+                <div key={itemData.id}>
+                  <CheckoutCard itemData={itemData} />
+                  <hr />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      )}
-      <CheckoutTotalSection />
-    </>
+        <CheckoutTotalSection />
+      </div>
+    </div>
   );
 }
 

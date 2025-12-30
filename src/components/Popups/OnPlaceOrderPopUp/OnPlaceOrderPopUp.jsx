@@ -15,13 +15,17 @@ function OnPlaceOrderPopUp() {
 
   return (
     <div className={styles.overlay}>
-      <div className={styles.popup}>
-        <div>thank you for your order</div>
-        <button className={styles["close-popup-button"]}>
-          <Link to="/" onClick={handleClosePopup}>
-            X
+      <div className={styles.popupWrapper}>
+        <div className={styles.popup}>
+          <div className={styles.message}>Thank you for your order!</div>
+          <Link
+            to="/"
+            onClick={handleClosePopup}
+            className={`${styles["close-popup-button"]} diagButton`}
+          >
+            <button className={styles["close-popup-button"]}>Go Home</button>
           </Link>
-        </button>
+        </div>
       </div>
     </div>
   );

@@ -10,16 +10,53 @@
   width: 100vw;
   height: 100vh;
 
-  background-color: rgba(71, 143, 119, 0.5);
+  background-color: rgba(102, 129, 120, 0.5);
 }
 
-.popup {
-  width: 20rem;
-  height: 10rem;
-
+.popupWrapper {
   background-color: lightblue;
 
-  padding: 1rem;
+  --width: 50rem;
+  /* --diag-offset: 2.4rem; */
+  --diag-offset: calc(12rem * 0.95);
 
-  text-align: center;
+  width: var(--width);
+
+  clip-path: polygon(
+    var(--diag-offset) 0%,
+    100% 0%,
+    calc(var(--width) - var(--diag-offset)) 100%,
+    0% 100%
+  );
+
+  .popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing);
+
+    background-color: white;
+
+    height: 10rem;
+    padding: var(--spacing);
+    margin: var(--spacing) auto;
+
+    --width: 45rem;
+    /* --diag-offset: 2.4rem; */
+    --diag-offset: calc(10rem * 0.95);
+
+    width: var(--width);
+
+    clip-path: polygon(
+      var(--diag-offset) 0%,
+      100% 0%,
+      calc(var(--width) - var(--diag-offset)) 100%,
+      0% 100%
+    );
+
+    .message {
+      font-size: 1.5rem;
+    }
+  }
 }

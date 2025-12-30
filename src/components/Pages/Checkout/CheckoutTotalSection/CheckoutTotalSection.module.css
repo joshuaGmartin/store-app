@@ -1,3 +1,39 @@
-.place-order-button {
-  cursor: pointer;
+.checkoutTotalSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  margin: 0 auto;
+  margin-top: 2rem;
+
+  width: 20rem;
+
+  .totalsLines {
+    font-size: 1rem;
+
+    .totalsLine {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    hr {
+      margin: 0.5rem 0;
+    }
+
+    div:last-child {
+      font-weight: 500;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    margin: 0 auto;
+
+    .place-order-button {
+      background-color: var(--bg-color-secondary);
+    }
+  }
 }
