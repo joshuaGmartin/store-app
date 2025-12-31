@@ -1,5 +1,6 @@
 {
   "name": "the.warehourse.store",
+  "homepage": "https://joshuagmartin.github.io/store-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
