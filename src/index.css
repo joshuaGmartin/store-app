@@ -29,7 +29,8 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 
-  /* min-width: 40rem; */
+  /* min-width: 401px !important; */
+  /* overflow: hidden; */
 }
 
 /* 
