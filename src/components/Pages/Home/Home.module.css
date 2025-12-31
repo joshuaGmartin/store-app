@@ -306,13 +306,6 @@
       opacity: 1;
     }
   }
-
-  @keyframes slideIn-intro5 {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 }
 
 /* ======================================================================================= */
@@ -418,10 +411,47 @@
       opacity: 1;
     }
   }
+}
 
-  @keyframes slideIn-intro5 {
+/* ======================================================================================= */
+/* Tiny Screen Clean up */
+/* ======================================================================================= */
+
+@media (max-width: 382px) {
+  .introText {
+    h2.intro1 {
+      padding-right: 100px;
+    }
+
+    h2.intro2 {
+      padding-left: 30px;
+    }
+
+    h2.intro3 {
+      padding-right: 25px;
+    }
+
+    h2.intro4 {
+      padding-left: 50px;
+    }
+  }
+
+  @keyframes slideIn-intro1 {
     to {
-      transform: translateY(0);
+      transform: translateX(
+        /* calc(-1 * var(--intro-slide-width) + 100vw - 0rem) */
+          calc(-1 * var(--intro-slide-width) + 382px)
+      );
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideIn-intro3 {
+    to {
+      transform: translateX(
+        /* calc(-1 * var(--intro-slide-width) + 100vw - 9.1rem) */
+          calc(-1 * var(--intro-slide-width) + 382px - 4.25rem)
+      );
       opacity: 1;
     }
   }

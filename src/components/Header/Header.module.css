@@ -1,11 +1,14 @@
-/* ======================================================================================= */
-/* Desktop/Tablet */
-/* ======================================================================================= */
-
 .header {
   /* overflow-x: hidden; */
   position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
 }
+
+/* ======================================================================================= */
+/* Desktop/Tablet */
+/* ======================================================================================= */
 
 .headerMobile {
   display: none;
@@ -14,11 +17,6 @@
 .headerNonMobile {
   --header-diag-offset: 2.85rem;
   --header-hover-mult: 1.1;
-
-  position: sticky;
-  z-index: 999;
-  top: 0;
-  width: 100%;
 
   display: flex;
   justify-content: space-between;
@@ -142,13 +140,8 @@
     --header-diag-offset: 2.85rem;
     --header-hover-mult: 1.1;
 
-    position: sticky;
-    z-index: 999;
-    top: 0;
-    width: 100%;
-
     display: flex;
-    flex-direction: column;
+    padding: 0 var(--padding);
 
     justify-content: space-between;
     align-items: center;
@@ -156,6 +149,8 @@
     background-color: var(--bg-color-secondary);
 
     .logo {
+      font-size: small;
+
       /* --width: 23rem; */
       /* min-width: var(--width); */
 
@@ -195,86 +190,83 @@
     }
   }
 
-  .mobileMenu {
+  .hamburger {
+    min-width: fit-content;
+    /* padding-right: var(--padding); */
+  }
+
+  .navBar {
+    /* position: fixed; */
+
+    /* --width: 15rem; */
+    /* min-width: var(--width); */
+
     display: flex;
+    display: none;
+
+    /* testing */
+    gap: 1.25rem;
+    height: 3rem;
     align-items: center;
+    justify-content: end;
 
-    .hamburger {
-      min-width: fit-content;
-      /* padding-right: var(--padding); */
-    }
+    background-color: lightblue;
+    background-color: green;
 
-    .navBar {
-      /* position: fixed; */
+    /* padding: 0 1rem 0 0rem; */
+    clip-path: polygon(
+      var(--header-diag-offset) 0%,
+      100% 0%,
+      100% 100%,
+      0% 100%
+    );
 
-      /* --width: 15rem; */
-      /* min-width: var(--width); */
-
-      display: flex;
-      /* testing */
-      gap: 1.25rem;
-      height: 3rem;
-      align-items: center;
-      justify-content: end;
-
-      background-color: lightblue;
-      background-color: green;
-
-      /* padding: 0 1rem 0 0rem; */
-      clip-path: polygon(
-        var(--header-diag-offset) 0%,
-        100% 0%,
-        100% 100%,
-        0% 100%
-      );
-
-      /* transition:
+    /* transition:
         min-width 0.25s ease,
         color 0.25s ease,
         background-color 0.25s ease; */
 
-      &:hover {
-        a {
-          color: white;
-        }
-        background-color: lightslategray;
-        /* min-width: calc(var(--width) * var(--header-hover-mult)); */
-      }
-
+    &:hover {
       a {
-        text-decoration: none;
-        color: black;
-        transition: transform 0.15s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
+        color: white;
       }
+      background-color: lightslategray;
+      /* min-width: calc(var(--width) * var(--header-hover-mult)); */
+    }
 
-      .cartLink {
-        position: relative;
-        .cartCount {
-          position: absolute;
-          top: -10px;
-          right: -11px;
+    a {
+      text-decoration: none;
+      color: black;
+      transition: transform 0.15s ease;
 
-          width: 1.25rem;
-          height: 1.25rem;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
 
-          border-radius: 50%;
+    .cartLink {
+      position: relative;
+      .cartCount {
+        position: absolute;
+        top: -10px;
+        right: -11px;
 
-          display: flex;
-          justify-content: center;
-          align-items: center;
+        width: 1.25rem;
+        height: 1.25rem;
 
-          font-size: 0.85rem;
-          color: white;
-          font-weight: bold;
+        border-radius: 50%;
 
-          background-color: cadetblue;
-          margin: none;
-          padding: none;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 0.85rem;
+        color: white;
+        font-weight: bold;
+
+        background-color: cadetblue;
+        margin: none;
+        padding: none;
       }
     }
   }
