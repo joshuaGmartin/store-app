@@ -3,12 +3,14 @@ import styles from "./ErrorPage.module.css";
 
 function ErrorPage() {
   return (
-    <>
-      Sorry, but this page doesn't exist
-      <button>
-        <Link to="/">Go Home</Link>
-      </button>
-    </>
+    <div className={styles.errorBody}>
+      <div className={styles.errorMessage}>
+        Sorry, but this page doesn't exist
+      </div>
+      <Link to="/" className={`${styles.homeButton} diagButton`}>
+        <button>Go Home</button>
+      </Link>
+    </div>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { Outlet } from "react-router";
+import { Outlet, ScrollRestoration } from "react-router";
 import Header from "./components/Header/Header.jsx";
 import Notifications from "./components/SingleElements/Notifications/Notifications.jsx";
 import "./App.css";
@@ -21,6 +21,7 @@ export default function App() {
       <CartContext.Provider value={{ userCart, setUserCart }}>
         <ShopContext.Provider value={{ shopURL, setShopURL }}>
           <NoticeContext.Provider value={{ notices, setNotices }}>
+            <ScrollRestoration />
             <Header />
             <Notifications />
             <Outlet />
