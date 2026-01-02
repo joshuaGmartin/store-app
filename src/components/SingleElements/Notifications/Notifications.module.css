@@ -16,7 +16,7 @@
     background-color: var(--bg-color-dark);
     color: white;
 
-    --diag-offset: calc(2.5rem * 0.95);
+    --diag-offset: 2.5rem;
 
     clip-path: polygon(var(--diag-offset) 0%, 100% 0%, 100% 100%, 0% 100%);
 

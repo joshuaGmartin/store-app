@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
+  /* mobile browsers breaking the home page intro text with auto scaling */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -15,6 +16,8 @@ html {
   --color-secondary: white;
   --padding: 1rem;
   --spacing: 1rem;
+
+  --site-min-width: 382px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -45,7 +48,7 @@ Catch All
   --width: 14rem;
   --mult: 1.1;
   --margin-calc: calc((var(--width) * var(--mult) - var(--width)) / 2);
-  --diag-offset: 2.4rem;
+  --diag-offset: calc(40rem / 16);
   height: fit-content;
 
   margin: 0 var(--margin-calc);

@@ -17,7 +17,7 @@
   background-color: lightblue;
 
   --width: 50rem;
-  --diag-offset: calc(12rem * 0.95);
+  --diag-offset: calc(12rem);
 
   width: var(--width);
 
@@ -42,7 +42,7 @@
     margin: var(--spacing) auto;
 
     --width: 45rem;
-    --diag-offset: calc(10rem * 0.95);
+    --diag-offset: calc(10rem);
 
     width: var(--width);
 

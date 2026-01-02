@@ -22,7 +22,7 @@
 
     padding: 0 var(--base-pad) 0 calc(var(--base-pad) + var(--left-adjust-pad));
 
-    --diag-offset: 7.14rem;
+    --diag-offset: calc(120rem / 16);
 
     clip-path: polygon(
       var(--diag-offset) 0%,

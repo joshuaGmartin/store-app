@@ -21,6 +21,11 @@
 /* Desktop */
 /* ======================================================================================= */
 
+:root {
+  /* grab height from inspecting slide element in browser */
+  --slide-height: calc(84rem / 16);
+}
+
 .introText {
   margin-top: var(--spacing-top);
   overflow-x: hidden;
@@ -37,13 +42,18 @@
   h2.intro3 {
     background-color: white;
     text-align: end;
-    clip-path: polygon(0% 0%, 100% 0%, 99.5% 100%, 0% 100%);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      calc(var(--intro-slide-width) - var(--slide-height)) 100%,
+      0% 100%
+    );
   }
 
   h2.intro2,
   h2.intro4 {
     background-color: lightblue;
-    clip-path: polygon(0.5% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(var(--slide-height) 0%, 100% 0%, 100% 100%, 0% 100%);
   }
 
   h2.intro1 {
@@ -151,16 +161,24 @@
   }
 }
 
+:root {
+  --first-slide-offset: 10rem;
+}
+
 @keyframes slideIn-intro1 {
   to {
-    transform: translateX(calc(-1 * var(--intro-slide-width) + 100vw - 10rem));
+    transform: translateX(
+      calc(-1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset))
+    );
     opacity: 1;
   }
 }
 
 @keyframes slideIn-intro2 {
   to {
-    transform: translateX(20rem);
+    transform: translateX(
+      calc(var(--first-slide-offset) + 2 * var(--slide-height))
+    );
     opacity: 1;
   }
 }
@@ -168,7 +186,10 @@
 @keyframes slideIn-intro3 {
   to {
     transform: translateX(
-      calc(-1 * var(--intro-slide-width) + 100vw - 19.9rem)
+      calc(
+        -1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset) -
+          calc(2 * var(--slide-height))
+      )
     );
     opacity: 1;
   }
@@ -176,7 +197,7 @@
 
 @keyframes slideIn-intro4 {
   to {
-    transform: translateX(10rem);
+    transform: translateX(var(--first-slide-offset));
     opacity: 1;
   }
 }
@@ -195,6 +216,7 @@
 @media (max-width: 1100px) {
   :root {
     --spacing-top: 3rem;
+    --slide-height: calc(60rem / 16);
   }
 
   .introText {
@@ -212,14 +234,14 @@
       clip-path: polygon(
         0% 0%,
         100% 0%,
-        calc(100% - 3.75rem * 0.95) 100%,
+        calc(var(--intro-slide-width) - var(--slide-height)) 100%,
         0% 100%
       );
     }
 
     h2.intro2,
     h2.intro4 {
-      clip-path: polygon(calc(3.75rem * 0.95) 0%, 100% 0%, 100% 100%, 0% 100%);
+      clip-path: polygon(var(--slide-height) 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     h2.intro1 {
@@ -270,11 +292,14 @@
     }
   }
 
+  :root {
+    --first-slide-offset: 2rem;
+  }
+
   @keyframes slideIn-intro1 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 10rem) */
-          calc(-1 * var(--intro-slide-width) + 100vw - 2rem)
+        calc(-1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset))
       );
       opacity: 1;
     }
@@ -282,8 +307,9 @@
 
   @keyframes slideIn-intro2 {
     to {
-      /* transform: translateX(20rem); */
-      transform: translateX(9rem);
+      transform: translateX(
+        calc(var(--first-slide-offset) + 2 * var(--slide-height))
+      );
       opacity: 1;
     }
   }
@@ -291,9 +317,10 @@
   @keyframes slideIn-intro3 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 19.9rem) */
-          /* calc(-1 * var(--intro-slide-width) + 100vw - 11.9rem) */
-          calc(-1 * var(--intro-slide-width) + 100vw - 9.1rem)
+        calc(
+          -1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset) -
+            calc(2 * var(--slide-height))
+        )
       );
       opacity: 1;
     }
@@ -301,8 +328,7 @@
 
   @keyframes slideIn-intro4 {
     to {
-      /* transform: translateX(10rem); */
-      transform: translateX(2rem);
+      transform: translateX(var(--first-slide-offset));
       opacity: 1;
     }
   }
@@ -315,6 +341,7 @@
 @media (max-width: 684px) {
   :root {
     --spacing-top: 2rem;
+    --slide-height: calc(36rem / 16);
   }
 
   .introText {
@@ -332,14 +359,14 @@
       clip-path: polygon(
         0% 0%,
         100% 0%,
-        calc(100% - 2.25rem * 0.95) 100%,
+        calc(var(--intro-slide-width) - var(--slide-height)) 100%,
         0% 100%
       );
     }
 
     h2.intro2,
     h2.intro4 {
-      clip-path: polygon(calc(2.25rem * 0.95) 0%, 100% 0%, 100% 100%, 0% 100%);
+      clip-path: polygon(var(--slide-height) 0%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     h2.intro1 {
@@ -376,11 +403,14 @@
     }
   }
 
+  :root {
+    --first-slide-offset: 0rem;
+  }
+
   @keyframes slideIn-intro1 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 10rem) */
-          calc(-1 * var(--intro-slide-width) + 100vw - 0rem)
+        calc(-1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset))
       );
       opacity: 1;
     }
@@ -388,8 +418,9 @@
 
   @keyframes slideIn-intro2 {
     to {
-      /* transform: translateX(9rem); */
-      transform: translateX(4.2rem);
+      transform: translateX(
+        calc(var(--first-slide-offset) + 2 * var(--slide-height))
+      );
       opacity: 1;
     }
   }
@@ -397,8 +428,10 @@
   @keyframes slideIn-intro3 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 9.1rem) */
-          calc(-1 * var(--intro-slide-width) + 100vw - 4.25rem)
+        calc(
+          -1 * var(--intro-slide-width) + 100vw - var(--first-slide-offset) -
+            calc(2 * var(--slide-height))
+        )
       );
       opacity: 1;
     }
@@ -406,8 +439,7 @@
 
   @keyframes slideIn-intro4 {
     to {
-      /* transform: translateX(10rem); */
-      transform: translateX(0rem);
+      transform: translateX(var(--first-slide-offset));
       opacity: 1;
     }
   }
@@ -439,8 +471,7 @@
   @keyframes slideIn-intro1 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 0rem) */
-          calc(-1 * var(--intro-slide-width) + 382px)
+        calc(-1 * var(--intro-slide-width) + var(--site-min-width))
       );
       opacity: 1;
     }
@@ -449,8 +480,7 @@
   @keyframes slideIn-intro3 {
     to {
       transform: translateX(
-        /* calc(-1 * var(--intro-slide-width) + 100vw - 9.1rem) */
-          calc(-1 * var(--intro-slide-width) + 382px - 4.25rem)
+        calc(-1 * var(--intro-slide-width) + var(--site-min-width) - 4.25rem)
       );
       opacity: 1;
     }

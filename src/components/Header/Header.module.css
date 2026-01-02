@@ -4,6 +4,7 @@
   top: 0;
   z-index: 999;
   width: 100%;
+  min-width: var(--site-min-width);
 }
 
 /* ======================================================================================= */
@@ -15,7 +16,7 @@
 }
 
 .headerNonMobile {
-  --header-diag-offset: 2.85rem;
+  --header-diag-offset: calc(48rem / 16);
   --header-hover-mult: 1.1;
 
   display: flex;
@@ -137,11 +138,10 @@
   }
 
   .headerMobile {
-    --header-diag-offset: 2.85rem;
+    --header-diag-offset: calc(39rem / 16);
     --header-hover-mult: 1.1;
 
     display: flex;
-    padding: 0 var(--padding);
 
     justify-content: space-between;
     align-items: center;
@@ -151,14 +151,15 @@
     .logo {
       font-size: small;
 
-      /* --width: 23rem; */
-      /* min-width: var(--width); */
+      --width: 18rem;
+      width: var(--width);
+      min-width: var(--width);
+      padding: 0 var(--padding);
 
       text-decoration: none;
       color: black;
-      /* background-color: lightblue; */
-      /* background-color: red; */
-      background-color: green;
+      background-color: lightblue;
+      background-color: red;
       /* padding: 0 4rem 0 1rem; */
       clip-path: polygon(
         0% 0%,
@@ -198,12 +199,12 @@
   }
 
   .navBar {
-    /* position: fixed; */
+    position: fixed;
 
     /* --width: 15rem; */
     /* min-width: var(--width); */
 
-    display: flex;
+    /* display: flex; */
     display: none;
 
     /* testing */
