@@ -10,9 +10,11 @@ button:disabled {
 }
 
 .checkoutBtn {
+  appearance: none;
   background-color: lightblue !important;
 
   button {
+    appearance: none;
     color: black !important;
   }
 }

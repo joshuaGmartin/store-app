@@ -372,35 +372,39 @@
     h2.intro1 {
       /* vw = 684px */
       /* padding-right: 265px; */
-      /* vw = 382px  */
+      /* vw = 390px  */
       /* padding-right: 100px; */
       /* manually found padding for two screen sizes, calculated linear equation */
-      padding-right: calc(0.546 * 100vw - 108.464px);
+      padding-right: calc(0.561 * 100vw - 118.724px);
     }
 
     h2.intro2 {
       /* vw = 684px */
       /* padding-left: 175px; */
-      /* vw = 382px  */
+      /* vw = 390px  */
       /* padding-left: 30px; */
-      padding-left: calc(0.48 * 100vw - 153.32px);
+      padding-left: calc(0.493 * 100vw - 162.212px);
     }
 
     h2.intro3 {
       /* vw = 684px */
       /* padding-right: 115px; */
-      /* vw = 382px  */
+      /* vw = 390px  */
       /* padding-right: 25px; */
-      padding-right: calc(0.298 * 100vw - 88.832px);
+      padding-right: calc(0.306 * 100vw - 94.304px);
     }
 
     h2.intro4 {
       /* vw = 684px */
       /* padding-left: 225px; */
-      /* vw = 382px  */
+      /* vw = 390px  */
       /* padding-left: 50px; */
-      padding-left: calc(0.579 * 100vw - 171.036px);
+      padding-left: calc(0.595 * 100vw - 181.98px);
     }
+  }
+
+  h3.bestSellerTitle {
+    font-size: 2rem !important;
   }
 
   :root {
@@ -449,7 +453,7 @@
 /* Tiny Screen Clean up */
 /* ======================================================================================= */
 
-@media (max-width: 382px) {
+@media (max-width: 390px) {
   .introText {
     h2.intro1 {
       padding-right: 100px;
@@ -480,7 +484,11 @@
   @keyframes slideIn-intro3 {
     to {
       transform: translateX(
-        calc(-1 * var(--intro-slide-width) + var(--site-min-width) - 4.25rem)
+        /* calc(-1 * var(--intro-slide-width) + var(--site-min-width) - 4.25rem) */
+          calc(
+            -1 * var(--intro-slide-width) + var(--site-min-width) -
+              var(--first-slide-offset) - calc(2 * var(--slide-height))
+          )
       );
       opacity: 1;
     }

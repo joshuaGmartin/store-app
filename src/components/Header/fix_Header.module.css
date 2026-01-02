@@ -202,27 +202,22 @@
     }
 
     .navBar {
-      /* ============ animation ============ */
-      transition: transform 0.75s ease;
-      transform: translateX(var(--width));
-
-      &.showMobileNav {
-        transform: translateX(0px);
-      }
-      /* =================================== */
-
       height: var(--header-diag-offset);
       position: fixed;
       right: 0;
 
+      /* animation: slideIn 0.25s ease-out forwards; */
+
       --width: calc(220rem / 16);
       min-width: var(--width);
 
-      display: flex;
+      /* display: flex; */
+      display: none;
 
       padding: 0 1rem 0 3rem;
 
       gap: 1.25rem;
+      /* height: 3rem; */
       align-items: center;
       justify-content: end;
 
@@ -234,6 +229,13 @@
         100% 100%,
         0% 100%
       );
+
+      transition: transform 0.75s ease;
+      transform: translateX(var(--width));
+
+      &.showMobileNav {
+        transform: translateX(0px);
+      }
 
       a {
         text-decoration: none;

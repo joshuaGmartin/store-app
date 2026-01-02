@@ -17,7 +17,7 @@ html {
   --padding: 1rem;
   --spacing: 1rem;
 
-  --site-min-width: 382px;
+  --site-min-width: 390px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,8 +34,8 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 
-  min-width: 382px;
-  /* overflow: hidden; */
+  min-width: var(--site-min-width);
+  overflow-x: hidden;
 }
 
 /* 

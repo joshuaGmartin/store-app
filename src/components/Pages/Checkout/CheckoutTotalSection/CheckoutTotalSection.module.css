@@ -26,6 +26,7 @@
   }
 
   .buttons {
+    appearance: none;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -33,7 +34,9 @@
     margin: 0 auto;
 
     .place-order-button {
+      appearance: none;
       background-color: var(--bg-color-secondary);
+      color: black !important;
     }
   }
 }

@@ -19,8 +19,10 @@
       svg {
         border-radius: 50%;
       }
+
       .selectedArrow {
         background-color: rgb(25, 123, 221);
+        z-index: 999;
       }
     }
   }
