@@ -34,10 +34,22 @@ function CartCard({ itemData }) {
           <Link className={styles.titleWrapper} to={"/product/" + itemData.id}>
             <h3>{itemData.title}</h3>
           </Link>
-          <p className={styles.price}>${itemData.price.toFixed(2)}</p>
+          <p className={styles.price}>
+            $
+            {itemData.price.toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </p>
         </div>
         <div className={styles.bottomRightSection}>
-          <span>Subtotal: ${(itemData.price * itemData.count).toFixed(2)}</span>
+          <span>
+            Subtotal: $
+            {(itemData.price * itemData.count).toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </span>
           <div className={styles.arrowsAndTrash}>
             {/* Deciding against manual input */}
             <div className={styles.arrows}>

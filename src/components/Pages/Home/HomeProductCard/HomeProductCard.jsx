@@ -24,7 +24,13 @@ function HomeProductCard({ itemData }) {
           <div className={styles.stars}>
             <RatingStars rating={itemData.rating} />
           </div>
-          <p className={styles.price}>${itemData.price.toFixed(2)}</p>
+          <p className={styles.price}>
+            $
+            {itemData.price.toLocaleString("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </p>
         </div>
       </div>
       <Link

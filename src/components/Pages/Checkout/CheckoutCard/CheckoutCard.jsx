@@ -13,7 +13,13 @@ function CheckoutCard({ itemData }) {
         <span className={styles.quantity}>x{itemData.count}</span>
       </div>
       <div className={styles.priceSection}>
-        <span>${(itemData.price * itemData.count).toFixed(2)}</span>
+        <span>
+          $
+          {(itemData.price * itemData.count).toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </span>
       </div>
     </div>
   );
