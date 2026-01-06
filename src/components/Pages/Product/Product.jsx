@@ -36,62 +36,64 @@ function Product() {
     return <ErrorPage />;
   } else {
     return (
-      <div className={styles.productBody}>
+      <>
         {itemData ? (
-          <div className={styles.card}>
-            <div className={styles.topSection}>
-              <div className={styles.imgWrapper}>
-                <img src={itemData.image} />
-              </div>
-              <div className={styles.rightSide}>
-                <div>
-                  <h3>{itemData.title}</h3>
-                  <div className={styles.catAndStars}>
-                    <h4>
-                      {itemData.category.charAt(0).toUpperCase() +
-                        itemData.category.slice(1)}
-                    </h4>
-                    <RatingStars rating={itemData.rating} />
-                  </div>
-                  <p className={styles.price}>
-                    $
-                    {itemData.price.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </p>
-                  <p className={styles.description}>{itemData.description}</p>
+          <div className={styles.productBody}>
+            <div className={styles.card}>
+              <div className={styles.topSection}>
+                <div className={styles.imgWrapper}>
+                  <img src={itemData.image} />
                 </div>
-                <div className={styles.addToCartSection}>
-                  <div className={styles.arrowsAndQuantity}>
-                    <span className={styles["arrow-container"]}>
-                      <ChevronDown
-                        className={styles.arrowIcon}
-                        onClick={handleArrowDown}
-                      />
-                    </span>
-                    <span className={styles.quantity}>{quantity}</span>
-                    <span className={styles["arrow-container"]}>
-                      <ChevronUp onClick={handleArrowUp} />
-                    </span>
+                <div className={styles.rightSide}>
+                  <div>
+                    <h3>{itemData.title}</h3>
+                    <div className={styles.catAndStars}>
+                      <h4>
+                        {itemData.category.charAt(0).toUpperCase() +
+                          itemData.category.slice(1)}
+                      </h4>
+                      <RatingStars rating={itemData.rating} />
+                    </div>
+                    <p className={styles.price}>
+                      $
+                      {itemData.price.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}
+                    </p>
+                    <p className={styles.description}>{itemData.description}</p>
                   </div>
-                  <AddToCartBtn
-                    itemData={itemData}
-                    quantity={quantity}
-                    userCart={userCart}
-                    setUserCart={setUserCart}
-                  />
+                  <div className={styles.addToCartSection}>
+                    <div className={styles.arrowsAndQuantity}>
+                      <span className={styles["arrow-container"]}>
+                        <ChevronDown
+                          className={styles.arrowIcon}
+                          onClick={handleArrowDown}
+                        />
+                      </span>
+                      <span className={styles.quantity}>{quantity}</span>
+                      <span className={styles["arrow-container"]}>
+                        <ChevronUp onClick={handleArrowUp} />
+                      </span>
+                    </div>
+                    <AddToCartBtn
+                      itemData={itemData}
+                      quantity={quantity}
+                      userCart={userCart}
+                      setUserCart={setUserCart}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.contShopBtnWrapper}>
-              <ContinueShoppingBtn className={styles.contShopBtn} />
+              <div className={styles.contShopBtnWrapper}>
+                <ContinueShoppingBtn className={styles.contShopBtn} />
+              </div>
             </div>
           </div>
         ) : (
           <Loading />
         )}
-      </div>
+      </>
     );
   }
 }
