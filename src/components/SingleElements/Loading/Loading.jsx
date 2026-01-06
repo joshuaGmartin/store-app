@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 
 export default function Loading() {
   const [colorCharIndex, setColorCharIndex] = useState(0);
-  const loadingText = "Loading...";
+  // const loadingText = "Loading...";
+  const loadingText = "Loading";
   const loadingTextArr = loadingText.split("");
   const animateSpeed = 50;
 

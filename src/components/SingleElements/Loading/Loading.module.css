@@ -5,35 +5,9 @@
 
   margin-top: 10rem;
   font-size: 5rem;
-  background-color: transparent;
-
-  .line {
-    background-color: black;
-    background-color: var(--bg-color-secondary);
-    width: 100%;
-    height: 5px;
-
-    margin-right: -5rem;
-  }
+  background-color: var(--bg-color-secondary);
 
   .loadingWrapper {
-    --base-pad: 12rem;
-    --left-adjust-pad: 3rem;
-
-    padding: 0 var(--base-pad) 0 calc(var(--base-pad) + var(--left-adjust-pad));
-
-    --diag-offset: calc(120rem / 16);
-
-    clip-path: polygon(
-      var(--diag-offset) 0%,
-      100% 0%,
-      calc(100% - var(--diag-offset)) 100%,
-      0% 100%
-    );
-
-    background-color: lightblue;
-    width: fit-content;
-
     .coloredChar {
       color: white;
     }

@@ -77,7 +77,7 @@ function Shop() {
     filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
   // testing
-  return <Loading />;
+  // return <Loading />;
 
   return (
     <>
