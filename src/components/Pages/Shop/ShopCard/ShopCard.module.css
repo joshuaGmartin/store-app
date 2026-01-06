@@ -1,3 +1,7 @@
+/* ======================================================================================= */
+/* Desktop */
+/* ======================================================================================= */
+
 .card {
   background-color: lightblue;
   background-color: white;
@@ -81,9 +85,6 @@
     }
 
     .addToCartSection {
-      align-self: start;
-      justify-self: center;
-      justify-self: end;
       justify-self: start;
 
       display: flex;
@@ -116,5 +117,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+/* ======================================================================================= */
+/* Tablet/Mobile */
+/* ======================================================================================= */
+
+@media (max-width: 684px) {
+  .card {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    .leftSide {
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* gap: var(--spacing); */
+
+      .imgWrapper {
+        /* height: 16.5rem; */
+
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+
+        img {
+          /* margin: 0 auto; */
+          /* max-height: 100%; */
+        }
+      }
+    }
+
+    .rightSide {
+      grid-template-rows: 1fr auto;
+      gap: 0rem;
+
+      .addToCartSection {
+        justify-self: center;
+      }
+    }
   }
 }

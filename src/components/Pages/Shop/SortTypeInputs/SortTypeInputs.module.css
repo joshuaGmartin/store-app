@@ -1,6 +1,7 @@
 .sortLine {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
 
   .arrowsAndInputs {
     display: flex;
@@ -23,6 +24,9 @@
       .selectedArrow {
         background-color: rgb(25, 123, 221);
         z-index: 999;
+      }
+      :not(.selectedArrow) {
+        z-index: 998;
       }
     }
   }

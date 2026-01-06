@@ -1,9 +1,11 @@
-label {
-  cursor: pointer;
-  user-select: none;
+.catLine {
+  label {
+    cursor: pointer;
+    user-select: none;
 
-  display: flex;
-  gap: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
 
-  min-width: max-content;
+    min-width: max-content;
+  }
 }

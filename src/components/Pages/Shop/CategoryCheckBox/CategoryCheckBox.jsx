@@ -24,16 +24,18 @@ export default function CategoryCheckBox({
 
   return (
     <div key={cat + "-cat"}>
-      <label htmlFor={cat + "-cat"}>
-        <input
-          type="checkbox"
-          id={cat + "-cat"}
-          value={cat}
-          onChange={() => setSelectedCats(cat)}
-          checked={selectedCats.includes(cat)}
-        />
-        {cat.charAt(0).toUpperCase() + cat.slice(1)}
-      </label>
+      <div className={styles.catLine}>
+        <label htmlFor={cat + "-cat"}>
+          <input
+            type="checkbox"
+            id={cat + "-cat"}
+            value={cat}
+            onChange={() => setSelectedCats(cat)}
+            checked={selectedCats.includes(cat)}
+          />
+          {cat.charAt(0).toUpperCase() + cat.slice(1)}
+        </label>
+      </div>
     </div>
   );
 }

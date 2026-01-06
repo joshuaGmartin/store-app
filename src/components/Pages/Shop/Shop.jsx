@@ -77,41 +77,47 @@ function Shop() {
     filteredItemsData_sorted = sortItems(filteredItemsData, selectedSort);
 
   // testing
-  // return <Loading />;
+  return <Loading />;
 
   return (
     <>
       {filteredItemsData_sorted ? (
         <div className={styles.shopBody}>
-          <div className={styles.sortAndFilterSection}>
-            <div>
-              <h3 className={styles.filterSortTitle}>Filter</h3>
-              <div className={styles.filterSortChoices}>
-                {catData.map((cat) => {
-                  return (
-                    <CategoryCheckBox
-                      key={cat + "-cat"}
-                      cat={cat}
-                      selectedCats={selectedCats}
-                      setSelectedCats={setSelectedCats}
-                    />
-                  );
-                })}
+          <div className={styles.sortAndFilterSectionWrapper}>
+            <div className={styles.sortAndFilterSection}>
+              <div className={styles.filterSection}>
+                <h3 className={styles.filterSortTitle}>Filter</h3>
+                <div
+                  className={`${styles.filterSortChoices} ${styles.catLines}`}
+                >
+                  {catData.map((cat) => {
+                    return (
+                      <CategoryCheckBox
+                        key={cat + "-cat"}
+                        cat={cat}
+                        selectedCats={selectedCats}
+                        setSelectedCats={setSelectedCats}
+                      />
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 className={styles.filterSortTitle}>Sort</h3>
-              <div className={styles.filterSortChoices}>
-                {sortTypes.map((sortType) => {
-                  return (
-                    <SortTypeInputs
-                      key={sortType}
-                      sortType={sortType}
-                      selectedSort={selectedSort}
-                      setSelectedSort={setSelectedSort}
-                    />
-                  );
-                })}
+              <div className={styles.sortSection}>
+                <h3 className={styles.filterSortTitle}>Sort</h3>
+                <div
+                  className={`${styles.filterSortChoices} ${styles.sortLines}`}
+                >
+                  {sortTypes.map((sortType) => {
+                    return (
+                      <SortTypeInputs
+                        key={sortType}
+                        sortType={sortType}
+                        selectedSort={selectedSort}
+                        setSelectedSort={setSelectedSort}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
             <RotateCcw
