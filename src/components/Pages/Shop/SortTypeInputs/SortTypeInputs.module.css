@@ -17,16 +17,11 @@
         display: none;
       }
 
-      svg {
+      .arrowWrapper {
         border-radius: 50%;
-      }
-
-      .selectedArrow {
-        background-color: rgb(25, 123, 221);
-        z-index: 999;
-      }
-      :not(.selectedArrow) {
-        z-index: 998;
+        &.selectedArrow {
+          background-color: rgb(25, 123, 221);
+        }
       }
     }
   }

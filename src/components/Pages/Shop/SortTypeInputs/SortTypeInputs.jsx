@@ -21,9 +21,11 @@ export default function SortTypeInputs({
             checked={selectedSort === desValue}
             onChange={() => setSelectedSort(desValue)}
           />
-          <ArrowDown
-            className={selectedSort === desValue ? styles.selectedArrow : null}
-          />
+          <div
+            className={`${styles.arrowWrapper} ${selectedSort === desValue ? styles.selectedArrow : null}`}
+          >
+            <ArrowDown />
+          </div>
         </label>
         <label htmlFor={ascValue}>
           <input
@@ -32,9 +34,11 @@ export default function SortTypeInputs({
             checked={selectedSort === ascValue}
             onChange={() => setSelectedSort(ascValue)}
           />
-          <ArrowUp
-            className={selectedSort === ascValue ? styles.selectedArrow : null}
-          />
+          <div
+            className={`${styles.arrowWrapper} ${selectedSort === ascValue ? styles.selectedArrow : null}`}
+          >
+            <ArrowUp />
+          </div>
         </label>
       </div>
     </div>
