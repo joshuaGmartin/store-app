@@ -1,7 +1,7 @@
-https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart
+https://store-app-five-rho.vercel.app/
 
 <!--
 
-convert to PaaS
+mobile slide header moves on scroll (only on mobile)
 
  -->
