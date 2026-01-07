@@ -4,9 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import routes from "./modules/routes.jsx";
 import "./index.css";
 
-const router = createBrowserRouter(routes, {
-  basename: "/store-app",
-});
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
