@@ -248,6 +248,8 @@ function Header() {
           <Github />
         </a>
       </nav>
+      {/* bug fix: need made header sticky for mobile rubberbanding. Thus, need spacer for rest of site beneath header */}
+      <div className={styles.spacer}></div>
     </>
   );
 }

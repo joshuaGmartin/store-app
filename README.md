@@ -2,6 +2,6 @@ https://store-app-five-rho.vercel.app/
 
 <!--
 
-mobile slide header moves on scroll (only on mobile)
+changed header to fixed, need top padding on all of site for desktop and mobile
 
  -->

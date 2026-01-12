@@ -27,7 +27,7 @@
 }
 
 .introText {
-  margin-top: var(--spacing-top);
+  padding-top: var(--spacing-top);
   overflow-x: hidden;
 
   h2.intro1,
@@ -220,7 +220,7 @@
   }
 
   .introText {
-    margin-top: var(--spacing-top);
+    padding-top: var(--spacing-top);
 
     h2.intro1,
     h2.intro2,
@@ -345,7 +345,7 @@
   }
 
   .introText {
-    margin-top: (--spacing-top);
+    padding-top: (--spacing-top);
 
     h2.intro1,
     h2.intro2,

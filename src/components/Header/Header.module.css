@@ -1,6 +1,6 @@
 .header {
   /* overflow-x: hidden; */
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
   width: 100%;
@@ -10,6 +10,10 @@
 /* ======================================================================================= */
 /* Desktop/Tablet */
 /* ======================================================================================= */
+
+.spacer {
+  margin-bottom: calc(48rem / 16);
+}
 
 .headerMobile,
 .mobileNavBar {
@@ -139,6 +143,10 @@
 /* ======================================================================================= */
 
 @media (max-width: 684px) {
+  .spacer {
+    margin-bottom: calc(39rem / 16);
+  }
+
   :root {
     --header-diag-offset: calc(39rem / 16);
     --header-hover-mult: 1.1;
