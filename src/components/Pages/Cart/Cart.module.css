@@ -1,9 +1,12 @@
+/* ======================================================================================= */
+/* Desktop */
+/* ======================================================================================= */
+
 .cartBody {
   display: flex;
   gap: var(--spacing);
 
   max-width: 1500px;
-  min-width: 1100px;
 
   margin: 0 auto;
 
@@ -42,7 +45,21 @@
 
     padding: var(--padding);
     background-color: white;
+  }
+}
 
-    height: fit-content;
+/* ======================================================================================= */
+/* Tablet/Mobile */
+/* ======================================================================================= */
+
+@media (max-width: 1100px) {
+  .cartBody {
+    flex-direction: column;
+    /* padding: var(--padding); */
+
+    .total-section {
+      position: initial;
+      top: initial;
+    }
   }
 }

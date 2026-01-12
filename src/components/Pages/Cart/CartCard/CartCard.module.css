@@ -1,3 +1,7 @@
+/* ======================================================================================= */
+/* Desktop */
+/* ======================================================================================= */
+
 .card {
   background-color: lightblue;
   background-color: white;
@@ -80,28 +84,58 @@
         font-size: 2rem;
       }
     }
+
+    .bottomRightSection {
+      .arrowsAndTrash {
+        display: flex;
+        gap: var(--spacing);
+
+        .arrows {
+          display: flex;
+
+          .arrow-container {
+            cursor: pointer;
+            user-select: none;
+          }
+        }
+
+        .removeFromCartButton {
+          transition: transform 0.15s ease;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
   }
 }
 
-.arrowsAndTrash {
-  display: flex;
-  gap: var(--spacing);
+/* ======================================================================================= */
+/* Mobile */
+/* ======================================================================================= */
 
-  .arrows {
+@media (max-width: 684px) {
+  .card {
+    height: fit-content;
+
     display: flex;
+    flex-direction: column;
 
-    .arrow-container {
-      cursor: pointer;
-      user-select: none;
+    .rightSection {
+      .topRightSection {
+        flex-direction: column;
+        justify-content: start;
+        gap: 0;
+      }
     }
-  }
 
-  .removeFromCartButton {
-    transition: transform 0.15s ease;
+    .bottomRightSection {
+      display: flex;
+      justify-content: space-between;
 
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.1);
+      padding-right: var(--padding);
     }
   }
 }
