@@ -1,13 +1,19 @@
+/* ======================================================================================= */
+/* Desktop
+/* ======================================================================================= */
+
 .overlay {
   display: flex;
   justify-content: center;
   align-items: center;
 
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
+  /* top: 0; */
+  /* left: 0; */
 
   width: 100vw;
+  min-width: var(--site-min-width);
   height: 100vh;
 
   background-color: rgba(102, 129, 120, 0.5);
@@ -20,6 +26,9 @@
   --diag-offset: calc(12rem);
 
   width: var(--width);
+  min-width: var(--width);
+
+  overflow-x: hidden;
 
   clip-path: polygon(
     var(--diag-offset) 0%,
@@ -45,6 +54,7 @@
     --diag-offset: calc(10rem);
 
     width: var(--width);
+    min-width: var(--width);
 
     clip-path: polygon(
       var(--diag-offset) 0%,
@@ -56,5 +66,15 @@
     .message {
       font-size: 1.5rem;
     }
+  }
+}
+
+/* ======================================================================================= */
+/* Tiny Screen Clean up */
+/* ======================================================================================= */
+
+@media (max-width: 390px) {
+  .overlay {
+    min-height: calc(100vh * (390px / 100vw));
   }
 }
