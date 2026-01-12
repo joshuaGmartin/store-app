@@ -1,6 +1,10 @@
+/* ======================================================================================= */
+/* Desktop */
+/* ======================================================================================= */
+
 .checkoutBodyWrapper {
   max-width: 1500px;
-  min-width: 1100px;
+  /* min-width: 1100px; */
 
   padding: var(--padding);
   margin: 0 auto;
@@ -38,6 +42,30 @@
         flex-direction: column;
 
         margin: 0 auto;
+      }
+    }
+  }
+}
+
+/* ======================================================================================= */
+/* Tablet/Mobile */
+/* ======================================================================================= */
+
+@media (max-width: 684px) {
+  .checkoutBodyWrapper {
+    .checkoutBody {
+      h3.topMessage {
+        font-size: 2rem;
+
+        padding-bottom: 2rem;
+      }
+
+      .headerAndCards {
+        .checkoutHeader {
+          .headerTitles {
+            font-size: 1rem;
+          }
+        }
       }
     }
   }
