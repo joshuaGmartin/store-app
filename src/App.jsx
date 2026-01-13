@@ -18,16 +18,16 @@ export default function App() {
 
   return (
     <>
-      <CartContext.Provider value={{ userCart, setUserCart }}>
-        <ShopContext.Provider value={{ shopURL, setShopURL }}>
-          <NoticeContext.Provider value={{ notices, setNotices }}>
+      <CartContext value={{ userCart, setUserCart }}>
+        <ShopContext value={{ shopURL, setShopURL }}>
+          <NoticeContext value={{ notices, setNotices }}>
             <ScrollRestoration />
             <Header />
             <Notifications />
             <Outlet />
-          </NoticeContext.Provider>
-        </ShopContext.Provider>
-      </CartContext.Provider>
+          </NoticeContext>
+        </ShopContext>
+      </CartContext>
     </>
   );
 }
