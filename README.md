@@ -1,124 +1,50 @@
 # Store App (Shopping Cart)
 
-A **Front-end React-based shopping cart application**.
-
-This project focuses on client-side state management, routing, and component design using modern React tools. It is a **mock store** with no backend or checkout system.
+A **React single-page application**.
 
 🔗 Live Demo: https://store-app-five-rho.vercel.app
 
-## 🛍️ Overview
+---
 
-This project implements a classic shopping cart experience using React.  
-Users can browse products, add them to a cart, and manage quantities across multiple pages, all within a single-page application (SPA).
+## Overview
 
-Product data is fetched from a public API (**FakeStore API**).
+This project is a mock shopping cart application demonstrating client-side routing, state management, and testing in React. Users can browse products, manage cart items, and adjust quantities across multiple pages.
 
-## 📄 Pages & Routing
+Product data is fetched from the **FakeStore API**. No backend or checkout system is included.
 
-The app includes **three main pages**, navigated via a persistent navbar:
+---
 
-- **Home** – Introductory content and landing page
-- **Shop** – Displays available products
-- **Cart** – Shows selected items and quantities
+## Features
 
-Routing is handled using **react-router**.
+- React Router navigation (Home, Shop, Cart)
+- Product data fetched from an external API
+- Add, remove, and update cart items
+- Real-time cart item count in the navbar
+- Client-side state management
+- Deployed as a Single Page Application (SPA)
 
-## 🚀 Features
+---
 
-- Client-side routing with React Router
-- Product data fetched from FakeStore API
-- Product cards with:
-  - Quantity input field
-  - Increment / decrement controls
-  - “Add to Cart” button
-- Real-time cart item count displayed in the navbar
-- Cart page with:
-  - Item quantity adjustment
-  - Item removal
-- Fully client-side state management
-- Responsive layout and custom styling
+## Tech Stack
 
-## 🧱 Tech Stack
+- React
+- Vite
+- react-router
+- FakeStore API
+- Vercel
 
-| Category   | Technology    |
-| ---------- | ------------- |
-| Framework  | React         |
-| Bundler    | Vite          |
-| Routing    | react-router  |
-| API        | FakeStore API |
-| Deployment | Vercel        |
+---
 
-## 📦 Getting Started
-
-### Prerequisites
-
-- Node.js (v14+)
-- npm
-
-### Installation
+## Getting Started
 
 ```bash
 git clone https://github.com/joshuaGmartin/store-app.git
 cd store-app
 npm install
-```
-
-## ▶️ Running Locally
-
-```bash
 npm run dev
 ```
 
-## 📁 Project Structure
-
-```bash
-store-app/
-├── public/
-├── src/
-│   ├── components/     # Reusable UI components and pages
-│   ├── modules/        # JS modules and page routing
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── reset.css
-│   └── main.css
-├── index.html
-├── package.json
-├── README.md
-└── vercel.json         # SPA routing configuration
-```
-
-## 🌐 Deployment Notes
-
-This project is deployed as a Single Page Application (SPA).
-
-For Vercel, routing is handled via the following configuration:
-
-```bash
-{
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-}
-```
-
-This ensures react-router correctly handles all routes.
-
-## 🎯 Skill Application
-
-This project demonstrates:
-
-- Component-based UI architecture
-- State lifting and prop management
-- Client-side routing in React
-- API data fetching
-- SPA deployment configuration
-
-## 📜 License
-
-This project does not include a license.
+---
 
 ## ✨ Author
 
